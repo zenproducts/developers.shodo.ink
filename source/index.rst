@@ -1,3 +1,11 @@
+.. image:: _static/img/logo/ShodoLogo_1000.png
+   :width: 300px
+
+================================
+Shodo.ink ヘルプドキュメント
+================================
+
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+
+   getting-started/index

@@ -60,3 +60,4 @@ html_static_path = ['_static']
 html_show_sourcelink = False
 
 html_logo = "_static/img/logo/ShodoHelpLogo.png"
+html_favicon = '_static/favicon.ico'

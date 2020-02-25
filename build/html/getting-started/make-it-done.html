@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html  lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>記事を公開して執筆タスクを完了にしよう - Shodoヘルプ</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+      <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <link rel="index" title="索引" href="../genindex.html" />
+  <link rel="search" title="検索" href="../search.html" />
+  <link rel="prev" title="レビューをもとに記事を修正する" href="rewrite-post.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses">
+
+<navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+    <img class="logo" src="../_static/ShodoHelpLogo.png" alt="Shodo Logo"/>
+    
+  </router-link>
+  <a href="https://shodo.ink/" target="_blank" class="nav-link external">Shodoへ戻る<outboundlink/></a>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">クイック検索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="検索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#shodo">shodoで始めよう</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="create-a-task.html" class="reference internal ">執筆タスクを作ろう</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="manage-status.html" class="reference internal ">ステータスを管理しよう</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="write-a-post.html" class="reference internal ">記事を執筆しよう</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="review-a-post.html" class="reference internal ">レビューをしよう</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="rewrite-post.html" class="reference internal ">レビューをもとに記事を修正する</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">記事を公開して執筆タスクを完了にしよう</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#id2" class="reference internal">記事の本文をコピーする</a></li>
+                
+                  <li class="toctree-l2"><a href="#id3" class="reference internal">執筆タスクを完了にする</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">Shodoで始めよう</a> &raquo;</li>
+    
+    <li>記事を公開して執筆タスクを完了にしよう</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="rewrite-post.html"
+       title="前の章へ">← レビューをもとに記事を修正する</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="id1">
+<h1>記事を公開して執筆タスクを完了にしよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ついに記事が完成しましたね！
+あとはShodoの世界を飛び出して、ブログやオウンドメディアなどの各配信プラットフォームで公開すれば完了です。</p>
+<div class="section" id="id2">
+<h2>記事の本文をコピーする<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>記事の本文をコピーするには、執筆タスクのレビュー画面から「本文をコピーする」をクリックします。</p>
+<p><img alt="記事の本文をコピーする" src="../_images/publish_copy.png" /></p>
+<p>あとは各配信プラットフォームに記事をペーストしてください。
+公開のためのコーディングやデザインの調整などはブログサービスなどで行ってください。</p>
+<p>ShodoはMarkdown形式で記事を執筆、公開することをオススメしています。
+はてなブログやWordPressで利用できますので、ぜひShodoで書いた記事をそのままブログなどにペーストして記事としてください。</p>
+<div class="section" id="shodo">
+<h3>Shodoで記事を執筆、修正する範囲は？<a class="headerlink" href="#shodo" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>もしブログサービスなどに記事を貼り付けたあとに文章の変更などが少し必要になった場合などは、都度そのサービス上で修正すれば良いでしょう。
+大きな変更でなければ逐次Shodoにもどって記事を修正する必要はありません。数パラグラフの文を書く必要がある場合は、やはり校正やレビューがしやすいShodoでやり直したほうが良いでしょう。</p>
+<p>コーディングやデザインを作ったあとに文言の大きな修正が入ると、コーディング作業などが無駄になることが多いです。
+なるべくShodo上の原稿の段階で内容を詰めておきましょう。ブログ記事やWebページになったときは、最終的なデザインや見た目、配置のレビューに注力すると手戻りが少ないでしょう。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>執筆タスクを完了にする<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>記事が公開できたら執筆タスクを完了にしましょう。
+執筆タスクを完了にするには、レビュー画面から「完了に変更」をクリックすると便利です。</p>
+<p><img alt="執筆タスクを完了にする" src="../_images/publish_done.png" /></p>
+<p>執筆タスクの詳細画面から、ステータスを「完了」に変更してもOKです。</p>
+<p><img alt="執筆タスクを詳細画面から完了にする" src="../_images/publish_done_2.png" /></p>
+<p>これでShodoでの執筆作業は終了です。お疲れ様でした！</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="rewrite-post.html"
+       title="前の章へ">← レビューをもとに記事を修正する</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, Shodo.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

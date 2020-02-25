@@ -1,8 +1,0 @@
-p {
-    margin: 1rem 0;
-    padding: 0;
-}
-
-li > p {
-    margin: 0;
-}

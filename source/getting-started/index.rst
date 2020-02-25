@@ -8,5 +8,5 @@ Shodoで始めよう
    manage-status
    write-a-post
    review-a-post
-   wait-for-publish
+   rewrite-post
    make-it-done

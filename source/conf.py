@@ -71,4 +71,4 @@ html_show_sourcelink = False
 
 html_logo = "_static/img/logo/ShodoHelpLogo.png"
 html_favicon = "_static/favicon.ico"
-html_baseurl = "https://help.pyq.jp/"
+html_baseurl = "https://help.shodo.jp/"

@@ -9,3 +9,4 @@ Shodo.ink ヘルプドキュメント
    :maxdepth: 2
 
    getting-started/index
+   owner_guide/index

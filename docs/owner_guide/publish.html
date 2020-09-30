@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html  lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>外部サイトへの配信・連携を設定する - Shodoヘルプ</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+      <link rel="canonical" href="https://help.shodo.ink/owner_guide/publish.html" />
+    
+      <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <link rel="index" title="索引" href="../genindex.html" />
+  <link rel="search" title="検索" href="../search.html" />
+  <link rel="prev" title="組織に招待するメンバーの権限管理" href="role.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses">
+
+<navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+    <img class="logo" src="../_static/ShodoHelpLogo.png" alt="Shodo Logo"/>
+    
+  </router-link>
+  <a href="https://shodo.ink/" target="_blank" class="nav-link external">Shodoへ戻る<outboundlink/></a>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">クイック検索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="検索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#shodo-ink">shodo.ink ヘルプドキュメント</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../getting-started/index.html" class="reference internal ">Shodoで始めよう</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="index.html" class="reference internal ">管理者向けガイド</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">管理者向けガイド</a> &raquo;</li>
+    
+    <li>外部サイトへの配信・連携を設定する</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="role.html"
+       title="前の章へ">← 組織に招待するメンバーの権限管理</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="id1">
+<h1>外部サイトへの配信・連携を設定する<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><strong>現在Shodoは、はてなブログへの連携にのみ対応しております</strong> 。
+その他のサイトへの連携は今後対応される予定です。</p>
+<div class="section" id="id2">
+<h2>はてなブログとの連携を設定する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Shodoで執筆・レビューした記事をはてなブログに投稿できます。
+Shodoではプロジェクトごとに、はてなブログで作成されたブログを登録し、執筆タスクごとに記事を作成できます。
+記事の配信時は <strong>Shodoのアカウントごとに連携した、はてなアカウントを利用します</strong> 。
+対象のブログにアクセス権限がない場合は、記事の配信はできません。</p>
+<div class="section" id="atompuburl">
+<h3>はてなブログからAtomPubのURLを取得する<a class="headerlink" href="#atompuburl" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>はてなブログのダッシュボードを開いてください。</p>
+<ul class="simple">
+<li><p>はてなのダッシュボードを開く：<a class="reference external" href="https://blog.hatena.ne.jp/">https://blog.hatena.ne.jp/</a></p></li>
+</ul>
+<p><img alt="はてなブログのダッシュボードを表示" src="../_images/publish_hatena_1.jpeg" /></p>
+<p>画面左の「設定」を開いて、「詳細設定」にアクセスしてください。</p>
+<p><img alt="設定画面の詳細からスクロール" src="../_images/publish_hatena_2.jpeg" /></p>
+<p>画面下部にスクロールして、AtomPubの設定を見つけます。
+AtomPubから「ルートエンドポイント」に書かれたURLを、クリップボードにコピーしてください。</p>
+<p><img alt="ルートエンドポイントのURLをコピー" src="../_images/publish_hatena_3.jpeg" /></p>
+<p>たとえば <code class="docutils literal notranslate"><span class="pre">https://blog.hatena.ne.jp/hirokiky/hirokiky.hatenablog.jp/atom</span></code> のようなURLになります。</p>
+</div>
+<div class="section" id="shodo">
+<h3>Shodoの設定画面にペーストする<a class="headerlink" href="#shodo" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Shodoの執筆アプリからプロジェクトを選び、サイドバーから「設定」、「配信」をクリックしてください。</p>
+<p><img alt="Shodoで連携の設定" src="../_images/publish_hatena_4.jpeg" /></p>
+<p>ブログの名前と、コピーした「ルートエンドポイント」のURLを入力してください。
+「ブログ名」には任意の名前を入力できます（Shodo内でのみ表示される値です）。</p>
+<p>入力できればボタンをクリックすれば設定は完了です。</p>
+</div>
+<div class="section" id="id3">
+<h3>Shodoから記事を配信する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Shodoの執筆タスクから「配信」をクリックして執筆した記事の配信ができます。
+はてなブログには下書きで記事が作成されるので、公開されてしまう心配はありません。</p>
+<p><img alt="執筆タスクから配信" src="../_images/publish_hatena_5.jpeg" /></p>
+<p>記事の配信はライター以上のアカウントで可能です。
+配信の際は、各アカウントで事前に<a class="reference external" href="https://shodo.ink/settings/profile/social/">外部連携の設定画面</a>から、はてなアカウントとShodoを連携する必要があります。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="role.html"
+       title="前の章へ">← 組織に招待するメンバーの権限管理</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, Shodo.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

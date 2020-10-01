@@ -5,4 +5,3 @@
 .. toctree::
 
    role
-   publish

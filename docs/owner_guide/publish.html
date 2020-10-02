@@ -128,9 +128,15 @@
 <div class="section" id="id2">
 <h2>はてなブログとの連携を設定する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Shodoで執筆・レビューした記事をはてなブログに投稿できます。
-Shodoではプロジェクトごとに、はてなブログで作成されたブログを登録し、執筆タスクごとに記事を作成できます。
-記事の配信時は <strong>Shodoのアカウントごとに連携した、はてなアカウントを利用します</strong> 。
-対象のブログにアクセス権限がない場合は、記事の配信はできません。</p>
+Shodoではプロジェクトごとに、はてなブログで作成されたブログを登録し、執筆タスクごとに記事を作成できます。</p>
+<div class="section" id="id3">
+<h3>はてな連携の注意点<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>以下、連携の設定は、はてなブログのオーナーのみ可能です</strong>。</p>
+<p>また、AtomPub APIを通したブログへの投稿はブログのオーナーのみ可能です。
+ShodoではShodo内のメンバーが後述するAPIキーをプロジェクト内で共有することで記事の投稿を行います（APIキーはShodoのメンバー内では公開されません）。
+これは、はてなブログAtomPubの仕様によるものです。</p>
+<p>（OAuthを利用した認証では、はてなのブログメンバーがAtomPub API経由で記事の投稿が行えないため、この連携方法を採用しております）。</p>
+</div>
 <div class="section" id="atompuburl">
 <h3>はてなブログからAtomPubのURLを取得する<a class="headerlink" href="#atompuburl" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>はてなブログのダッシュボードを開いてください。</p>
@@ -141,25 +147,25 @@ Shodoではプロジェクトごとに、はてなブログで作成されたブ
 <p>画面左の「設定」を開いて、「詳細設定」にアクセスしてください。</p>
 <p><img alt="設定画面の詳細からスクロール" src="../_images/publish_hatena_2.jpeg" /></p>
 <p>画面下部にスクロールして、AtomPubの設定を見つけます。
-AtomPubから「ルートエンドポイント」に書かれたURLを、クリップボードにコピーしてください。</p>
+AtomPubから「ルートエンドポイント」に書かれたURLと、「APIキー」をメモしておいてください。</p>
 <p><img alt="ルートエンドポイントのURLをコピー" src="../_images/publish_hatena_3.jpeg" /></p>
-<p>たとえば <code class="docutils literal notranslate"><span class="pre">https://blog.hatena.ne.jp/hirokiky/hirokiky.hatenablog.jp/atom</span></code> のようなURLになります。</p>
+<p>たとえば <code class="docutils literal notranslate"><span class="pre">https://blog.hatena.ne.jp/hirokiky/hirokiky.hatenablog.jp/atom</span></code> のようなURLがエンドポイントのURLになります。</p>
 </div>
 <div class="section" id="shodo">
 <h3>Shodoの設定画面にペーストする<a class="headerlink" href="#shodo" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoの執筆アプリからプロジェクトを選び、サイドバーから「設定」、「配信」をクリックしてください。</p>
 <p><img alt="Shodoで連携の設定" src="../_images/publish_hatena_4.jpeg" /></p>
-<p>ブログの名前と、コピーした「ルートエンドポイント」のURLを入力してください。
+<p>ブログの名前と、コピーした「ルートエンドポイント」のURLと「APIキー」を入力してください。
 「ブログ名」には任意の名前を入力できます（Shodo内でのみ表示される値です）。</p>
 <p>入力できればボタンをクリックすれば設定は完了です。</p>
+<p>APIキーの値はShodo内の他メンバーには表示されません。</p>
 </div>
-<div class="section" id="id3">
-<h3>Shodoから記事を配信する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id4">
+<h3>Shodoから記事を配信する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoの執筆タスクから「配信」をクリックして執筆した記事の配信ができます。
 はてなブログには下書きで記事が作成されるので、公開されてしまう心配はありません。</p>
 <p><img alt="執筆タスクから配信" src="../_images/publish_hatena_5.jpeg" /></p>
-<p>記事の配信はライター以上のアカウントで可能です。
-配信の際は、各アカウントで事前に<a class="reference external" href="https://shodo.ink/settings/profile/social/">外部連携の設定画面</a>から、はてなアカウントとShodoを連携する必要があります。</p>
+<p>記事の配信はライター以上のアカウントで可能です。</p>
 </div>
 </div>
 </div>

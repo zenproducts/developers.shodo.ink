@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "Shodo Help"
-copyright = "2020, Shodo"
+copyright = "2021, Shodo"
 author = "Shodo"
 
 

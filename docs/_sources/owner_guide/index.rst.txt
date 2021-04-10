@@ -5,4 +5,4 @@
 .. toctree::
 
    role
-   publish
+   publish/index

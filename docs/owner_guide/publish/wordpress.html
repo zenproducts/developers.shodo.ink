@@ -139,7 +139,7 @@
 <p>ご利用のWordPressが以下3つの項目を満たしているか確認していきましょう。</p>
 <ol class="simple">
 <li><p>REST APIに対応している必要があります</p></li>
-<li><p>外部から「https」でREST APIへアクセスできる必要があります</p></li>
+<li><p>外部から「https」でREST APIへアクセス、認証できる必要があります</p></li>
 <li><p><a class="reference external" href="https://wordpress.org/plugins/application-passwords/">Application Passwords</a> というプラグインが必要です</p></li>
 </ol>
 <p>順に準備の方法を説明しますが、難しい場合はシステムの管理者にお問い合わせください。</p>
@@ -154,10 +154,15 @@ WordPressのURLに <code class="docutils literal notranslate"><span class="pre">
 <p>この両方でうまくいかない場合、システムの管理者にお問い合わせください。
 成功した場合は、どちらのURLでアクセスできたかを覚えておいてください（あとで設定値として利用します）。</p>
 </div>
-<div class="section" id="https">
-<h3>httpsに対応しているか確認する<a class="headerlink" href="#https" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="httpsauthorization">
+<h3>httpsに対応しているか、Authorizationヘッダーで認証できるかを確認する<a class="headerlink" href="#httpsauthorization" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>WordPressで動作しているサイトのURLは <code class="docutils literal notranslate"><span class="pre">https://...</span></code> になっていますか？もし <code class="docutils literal notranslate"><span class="pre">http://...</span></code> の場合、Shodoからの連携はできません。
 httpsの対応はShodoから安全に記事を連携するために必須となりますので、httpsに対応のうえご利用ください。</p>
+<p>また、Shodoから記事を連携する際に <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> ヘッダーを使って認証します。
+ホスティングされている環境がAuthorizationヘッダーをWordPressに送信するよう設定されているか確認ください。
+CDN、リバースプロキシー、ロードバランサーを利用している場合、WordPressの本体にAuthorizationヘッダーが送られない場合があります。
+Authorizationヘッダーが送付されない場合、記事の配信時に認証失敗となりますのでご注意ください。</p>
+<p><strong>詳しくはシステムの管理者にお問い合わせください</strong>。</p>
 </div>
 <div class="section" id="application-passwords">
 <h3>Application Passwordsプラグインをインストール・有効化する<a class="headerlink" href="#application-passwords" title="このヘッドラインへのパーマリンク">¶</a></h3>

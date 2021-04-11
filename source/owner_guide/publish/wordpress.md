@@ -11,7 +11,7 @@ Shodoで執筆・レビューした記事をWordPressに投稿できます。
 ご利用のWordPressが以下3つの項目を満たしているか確認していきましょう。
 
 1. REST APIに対応している必要があります
-2. 外部から「https」でREST APIへアクセスできる必要があります
+2. 外部から「https」でREST APIへアクセス、認証できる必要があります
 3. [Application Passwords](https://wordpress.org/plugins/application-passwords/) というプラグインが必要です
 
 順に準備の方法を説明しますが、難しい場合はシステムの管理者にお問い合わせください。
@@ -30,10 +30,17 @@ WordPressのURLに `/wp-json/wp/v2/` を追加して、ブラウザー（GoogleC
 この両方でうまくいかない場合、システムの管理者にお問い合わせください。
 成功した場合は、どちらのURLでアクセスできたかを覚えておいてください（あとで設定値として利用します）。
 
-### httpsに対応しているか確認する
+### httpsに対応しているか、Authorizationヘッダーで認証できるかを確認する
 
 WordPressで動作しているサイトのURLは `https://...` になっていますか？もし `http://...` の場合、Shodoからの連携はできません。
 httpsの対応はShodoから安全に記事を連携するために必須となりますので、httpsに対応のうえご利用ください。
+
+また、Shodoから記事を連携する際に `Authorization` ヘッダーを使って認証します。
+ホスティングされている環境がAuthorizationヘッダーをWordPressに送信するよう設定されているか確認ください。
+CDN、リバースプロキシー、ロードバランサーを利用している場合、WordPressの本体にAuthorizationヘッダーが送られない場合があります。
+Authorizationヘッダーが送付されない場合、記事の配信時に認証失敗となりますのでご注意ください。
+
+**詳しくはシステムの管理者にお問い合わせください**。
 
 ### Application Passwordsプラグインをインストール・有効化する
 WordPress製のサイトへ外部のアプリケーションからアクセスするために、

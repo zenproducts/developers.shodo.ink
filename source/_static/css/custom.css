@@ -3,6 +3,10 @@ p {
     padding: 0;
 }
 
+p img {
+    max-width: 100%;
+}
+
 li > p {
     margin: 0;
 }

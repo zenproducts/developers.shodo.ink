@@ -2,25 +2,24 @@
 <html  lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
 <title>記事を執筆しよう - Shodoヘルプ</title>
     
-      <link rel="stylesheet" href="../_static/pygments.css">
-      <link rel="stylesheet" href="../_static/theme.css">
-      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
           <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
 
       
-      <script src="../_static/theme-vendors.js"></script>
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
       <link rel="canonical" href="https://help.shodo.ink/getting-started/write-a-post.html" />
     
@@ -32,7 +31,8 @@
   </head>
 
   <body>
-    <div id="app" class="theme-container" :class="pageClasses">
+    <div id="app">
+    <div class="theme-container" :class="pageClasses">
 
 <navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
@@ -124,13 +124,13 @@
   
 </div>
 <hr>
-          <div class="content" role="main">
+          <div class="content" role="main" v-pre>
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>記事を執筆しよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Shodoで記事を執筆しましょう。
 Shodoではブラウザー上で、準備なしに記事を執筆できます。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2>記事の執筆を開始する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>記事の執筆は、執筆タスクから「記事を執筆する」をクリックして開始できます。</p>
 <p><img alt="執筆を開始する" src="../_images/write_start.png" /></p>
@@ -139,8 +139,8 @@ Shodoではブラウザー上で、準備なしに記事を執筆できます。
 ステータスを「執筆中」にすることで、他の人にも「このタスクは執筆の作業中なんだな」と伝えられます。</p>
 <p>まだ執筆中としたくないけど、試しに書きたいなという場合は「そのまま執筆する」をクリックしてください。</p>
 <p><img alt="執筆ステータスを執筆中に変更する" src="../_images/status_to_write.png" /></p>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h2>執筆する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>いよいよShodoでの執筆です！
 画面中央のエディター部分に記事を書けます。
@@ -156,15 +156,15 @@ Shodoではブラウザー上で、準備なしに記事を執筆できます。
 詳細な機能の説明
 利用開始の方法（求めるアクション）</p>
 </div></blockquote>
-<div class="section" id="id4">
+<section id="id4">
 <h3>記事の校正は自動で！<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoでは自動で記事の校正が行われます。
 たとえば「見れる」のようなら抜き言葉は即時で赤ペンがついてくれます。</p>
 <p>日本語の表現やニュアンス、自動校正で指摘できない範囲はAI校正でチェックできます。
 利用する場合は画面右上の「AI校正」をクリックしてください。AIにより文章が校正され、文章表現の良し悪しがヒートマップで表示されます。
 ただし、AI校正は「一般的に文章を考えた場合の自然さ」をもとに判断するので、専門的な単語や特殊な表現は良くないと判断される場合があります。</p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3>記事が書けたらどうする？<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>記事が書き終わったら、「記事を作成」をすることではじめてチームメンバーに記事が共有されます。
 「よし書き終わったな」という段階で画面右上の「バージョン1を作成」をクリックしてください。
@@ -176,8 +176,8 @@ Shodoではブラウザー上で、準備なしに記事を執筆できます。
 <p><img alt="執筆ステータスをレビュー中に変更する" src="../_images/write_to_review_2.png" /></p>
 <p>依頼されたレビュアーは、Shodoのダッシュボード画面からレビュー依頼されている執筆タスクを確認できます。
 執筆者としては一旦ここで休憩になります。依頼されたレビューに対応する方法は次のページで説明します。</p>
-</div>
-<div class="section" id="id6">
+</section>
+<section id="id6">
 <h3>サイドバーの説明<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>執筆画面の左にあるサイドバーから、エディターのいろいろな機能を使えます。
 それぞれ、以下のようなことができます。</p>
@@ -194,8 +194,8 @@ Shodoではブラウザー上で、準備なしに記事を執筆できます。
         <tr><th>文字校正</th><td>有効な文字校正ルールを確認できます</td></tr>
         <tr><th>設定</th><td>記事執筆のエディターを設定できます</td></tr>
     </tbody>
-</table></div>
-<div class="section" id="shodo">
+</table></section>
+<section id="shodo">
 <h3>Shodoで使えるフォーマットは？<a class="headerlink" href="#shodo" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoでは現在、プレーンテキスト・Markdown形式に対応しています。
 執筆画面の上部にあるツールバーから、見出し、太字、引用、コードなどのMarkdownのシンタックスを入力できます。</p>
@@ -216,9 +216,9 @@ Shodoではブラウザー上で、準備なしに記事を執筆できます。
 </div>
 <p>Markdownは、はてなブログ、WordPress（プラグイン導入時）に使える記法です。
 HTMLに変換でき、プレーンテキストのままでも読みやすい特徴があります。</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -235,12 +235,12 @@ HTMLに変換でき、プレーンテキストのままでも読みやすい特�
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, Shodo.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
 </div>
             </div>
           </div>
       </page>
-    </div>
+    </div></div>
     
     
   </body>

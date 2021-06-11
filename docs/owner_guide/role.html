@@ -2,37 +2,37 @@
 <html  lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
 <title>組織に招待するメンバーの権限管理 - Shodoヘルプ</title>
     
-      <link rel="stylesheet" href="../_static/pygments.css">
-      <link rel="stylesheet" href="../_static/theme.css">
-      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
           <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
 
       
-      <script src="../_static/theme-vendors.js"></script>
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
       <link rel="canonical" href="https://help.shodo.ink/owner_guide/role.html" />
     
       <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <link rel="index" title="索引" href="../genindex.html" />
   <link rel="search" title="検索" href="../search.html" />
-  <link rel="next" title="外部サイトへの配信・連携を設定する" href="publish.html" />
+  <link rel="next" title="記事の配信（連携）を設定する" href="publish/index.html" />
   <link rel="prev" title="管理者向けガイド" href="index.html" /> 
   </head>
 
   <body>
-    <div id="app" class="theme-container" :class="pageClasses">
+    <div id="app">
+    <div class="theme-container" :class="pageClasses">
 
 <navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
@@ -117,21 +117,25 @@
        title="前の章へ">← 管理者向けガイド</a>
   </li>
   <li class="next">
-    <a href="publish.html"
-       title="次の章へ">外部サイトへの配信・連携を設定する →</a>
+    <a href="publish/index.html"
+       title="次の章へ">記事の配信（連携）を設定する →</a>
   </li>
 </ul>
   
 </div>
 <hr>
-          <div class="content" role="main">
+          <div class="content" role="main" v-pre>
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>組織に招待するメンバーの権限管理<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>組織に新しいメンバーを招待して、コラボレーションを通した記事の執筆をしましょう！</p>
+<div class="admonition warning">
+<p>
+ロール管理、アカウントの権限管理は「ビジネスプラン」でのみのご提供となります。
+</p>
+</div><p>組織に新しいメンバーを招待して、コラボレーションを通した記事の執筆をしましょう！</p>
 <p>Shodoではメンバーのロール（役割）を設定して、アカウントの役割やできることを管理できます。
 さらに、プロジェクトごとにアクセス権も個別に設定できます。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2>メンバーの種類<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>プロジェクトのメンバーには3種類のロールがあります。</p>
 <ul class="simple">
@@ -141,16 +145,21 @@
 </ul>
 <p>それぞれのロールごとに、組織内でできることが違います。
 同じ会社やチームに属する人であれば「メンバー」で招待するのが良いでしょう。</p>
-<div class="section" id="id3">
+<div class="admonition note">
+<p>
+ベーシックプラン・プレミアムプランでは、組織の作成者のみが「オーナー」となり、<br>
+それ以外の招待したアカウントは「メンバー」となります。
+</p>
+</div><section id="id3">
 <h3>組織内でのできることの違い<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>コラボレーターは、デフォルトで <strong>どのプロジェクトにも参加していない</strong> 点で大きく違います。
 コラボレーターを組織に招待したときは、プロジェクトごとにアクセス権を付与する必要があります。</p>
 <p>メンバーは、デフォルトですべてのプロジェクトに対して「レビュアー」としての権限を持ちます。</p>
 <p><img alt="組織のロールのテーブル" src="../_images/org_role_table.jpeg" /></p>
 <p>プロジェクトごとの権限については以下で説明します。</p>
-</div>
-</div>
-<div class="section" id="id4">
+</section>
+</section>
+<section id="id4">
 <h2>プロジェクトごとに、できることを管理しよう<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Shodoでは、それぞれのプロジェクトごとにアカウントのロールを設定できます。
 組織内のロールは「どういった所属の人か」を設定しますが、プロジェクトごとでは「何をする人か」を設定できます。</p>
@@ -164,28 +173,28 @@
 記事を読んでレビューだけをしてほしい場合は「レビュアー」に設定します。
 レビュアーの場合、記事の執筆をしたり他の人に記事のレビューを依頼することはできません。</p>
 <p>組織の「メンバー」はデフォルトで全プロジェクトに「レビュアー」権を持ちます。</p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h2>権限管理、こんなときはどうする？<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Shodoの権限管理はとても柔軟な反面、少しわかりにくい場合があるかもしれません。
 以下に「こんな場合はどう権限管理するか」というよくある例を紹介しておりますので、参考にしてください。</p>
-<div class="section" id="id6">
+<section id="id6">
 <h3>社内の人にブログをレビューしてほしい<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>社内の人にレビューを依頼する場合は、その人を「メンバー」として組織に招待しましょう。
 組織に属する「メンバー」のアカウントはすべてのプロジェクトにアクセスできるので、プロジェクトごとの設定は不要です。</p>
 <p>組織に追加後に、執筆タスクの「レビュアー」に設定すると良いでしょう。</p>
-</div>
-<div class="section" id="id7">
+</section>
+<section id="id7">
 <h3>原稿の執筆で外部のレビュアーを招きたい<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>あるプロジェクトで寄稿文の原稿を書いているとして、そこにレビュアーを招きたい場合は「コラボレーター」として組織に招待しましょう。
 コラボレーターとして招待したあとに、当該のプロジェクトに「レビュアー」としてアクセス権を付与しましょう。</p>
-</div>
-<div class="section" id="id8">
+</section>
+<section id="id8">
 <h3>外部のライターを招きたい<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>執筆を外部の方に依頼する場合は、ライターの方を「コラボレーター」として組織に招待しましょう。
 執筆を依頼したいプロジェクトに「ライター」としてアクセス権を付与しましょう。</p>
-</div>
-<div class="section" id="id9">
+</section>
+<section id="id9">
 <h3>特定の執筆タスクだけを、特定の人に依頼したい<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoでは現在、「執筆タスク」という単位で権限を管理することはできません。
 Shodoでは「プロジェクト」という単位で、ライターやレビュアーといった権限が決まります。</p>
@@ -194,9 +203,9 @@ Shodoでは「プロジェクト」という単位で、ライターやレビュ
 <p>外部の方を「コラボレーター」として組織に追加し、「レビュアー」としてプロジェクトにアクセス権を追加します。
 すでに組織に所属する「メンバー」を、「ライター」としてプロジェクトに追加して記事の執筆を依頼できます。</p>
 <p>このとき「interview-2008」プロジェクトには<strong>専用のSlack連携を設定できるので、外部のインタビュイーの方を招待したSlackのチャンネルと連携されると良い</strong>でしょう。</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -207,18 +216,18 @@ Shodoでは「プロジェクト」という単位で、ライターやレビュ
        title="前の章へ">← 管理者向けガイド</a>
   </li>
   <li class="next">
-    <a href="publish.html"
-       title="次の章へ">外部サイトへの配信・連携を設定する →</a>
+    <a href="publish/index.html"
+       title="次の章へ">記事の配信（連携）を設定する →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, Shodo.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
 </div>
             </div>
           </div>
       </page>
-    </div>
+    </div></div>
     
     
   </body>

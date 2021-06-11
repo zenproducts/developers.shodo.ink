@@ -2,25 +2,24 @@
 <html  lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
 <title>レビューをもとに記事を修正する - Shodoヘルプ</title>
     
-      <link rel="stylesheet" href="../_static/pygments.css">
-      <link rel="stylesheet" href="../_static/theme.css">
-      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
           <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
 
       
-      <script src="../_static/theme-vendors.js"></script>
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
       <link rel="canonical" href="https://help.shodo.ink/getting-started/rewrite-post.html" />
     
@@ -32,7 +31,8 @@
   </head>
 
   <body>
-    <div id="app" class="theme-container" :class="pageClasses">
+    <div id="app">
+    <div class="theme-container" :class="pageClasses">
 
 <navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
@@ -124,14 +124,14 @@
   
 </div>
 <hr>
-          <div class="content" role="main">
+          <div class="content" role="main" v-pre>
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>レビューをもとに記事を修正する<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>レビュアーにレビューをもらったら、記事を修正して、新しいバージョンの記事を作成しましょう。
 ここでレビューに対応して記事をブラシュアップする方法を説明します。
 まずは、記事の執筆画面を開いてください。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2>レビューに対応しよう<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サイドバーから「レビュー」をクリックすると、投稿されたレビューコメントが閲覧できます。</p>
 <p><img alt="サイドバーからレビューを開く" src="../_images/rewrite_sidebar.png" /></p>
@@ -147,7 +147,7 @@
 <p><img alt="レビューを解決" src="../_images/rewrite_solved.png" /></p>
 <p>すべてのレビューコメントについて対応できれば記事の修正は完了です。
 再レビューを依頼する方法は後述します。</p>
-<div class="section" id="id3">
+<section id="id3">
 <h3>レビューコメントに返信する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>レビューコメントを読んで、単純に記事を修正して解決できない場合があります。
 たとえばレビューコメントの意味が捉えられない場合や、レビューコメントと違った意見がある場合です。</p>
@@ -156,13 +156,13 @@
 <p><img alt="レビューに返信する" src="../_images/rewrite_reply.png" /></p>
 <p>レビューコメントに返信しつつ、レビューを解決にしても問題ありません。
 レビュアーからの返答が必要な場合は、レビューを解決にせず、返信をしてそのままにしておきましょう。</p>
-</div>
-</div>
-<div class="section" id="id4">
+</section>
+</section>
+<section id="id4">
 <h2>再レビューの依頼をする<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>レビューコメントをすべて確認して対応できたら、執筆画面右上の「バージョンを作成」ボタンをクリックして記事を作成しましょう。</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -179,12 +179,12 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, Shodo.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
 </div>
             </div>
           </div>
       </page>
-    </div>
+    </div></div>
     
     
   </body>

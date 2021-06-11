@@ -2,25 +2,24 @@
 <html  lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
 <title>ステータスを管理しよう - Shodoヘルプ</title>
     
-      <link rel="stylesheet" href="../_static/pygments.css">
-      <link rel="stylesheet" href="../_static/theme.css">
-      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
           <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
 
       
-      <script src="../_static/theme-vendors.js"></script>
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
       <link rel="canonical" href="https://help.shodo.ink/getting-started/manage-status.html" />
     
@@ -32,7 +31,8 @@
   </head>
 
   <body>
-    <div id="app" class="theme-container" :class="pageClasses">
+    <div id="app">
+    <div class="theme-container" :class="pageClasses">
 
 <navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
@@ -124,9 +124,9 @@
   
 </div>
 <hr>
-          <div class="content" role="main">
+          <div class="content" role="main" v-pre>
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>ステータスを管理しよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>なぜ執筆の仕事が煩雑になってしまうのでしょうか？
 それは、書きたい記事や書いている記事、レビューしてもらっている記事の状態を管理できていないからです。
@@ -149,34 +149,34 @@ Shodoでは執筆タスクのステータスを管理し、ワークフローに
         <tr><td>完了</td><td>記事作成、配信プラットフォームでの記事作成が完了した状態。配信プラットフォーム上で予約投稿などができていればShodoの執筆タスクは完了にしても良い</td></tr>
         <tr><td>却下</td><td>当該の記事を書かないとした状態。</td></tr>
     </tbody>
-</table><div class="section" id="id2">
+</table><section id="id2">
 <h2>記事執筆のワークフロー<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>執筆タスクの各ステータスは、以下のようなワークフローで管理できます。
 記事を書き、レビューをし、公開するというフローになります。</p>
 <p><img alt="執筆ワークフロー" src="../_images/workflow.jpeg" /></p>
 <p>基本的にはShodoがステータスの変更をサジェストしてくれるので、執筆タスクを作成し、執筆、レビューと進めれば問題ありません。
 もしステータスを手動で変更したいときは、タスクの詳細画面から変更できます。ステータスを手動で変更しても特にトラブルになることはありません。</p>
-<div class="section" id="id3">
+<section id="id3">
 <h3>書きたい記事があるときは？<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まず、書きたい記事があるときは「アイディア」ステータスとして執筆タスクを作ると良いでしょう。
 アイディアと他の（執筆中などの）記事を分けて管理できるので、気兼ねなく思いついたアイディアを執筆タスクとすると良いでしょう。</p>
 <p>記事を書くことが決まれば「執筆待ち」とステータスを変更しましょう。
 こうすることで「書きたい記事」と「書くことが決まったけど、まだ書いていない記事」を分けて管理できます。</p>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h3>レビューが終わったときは？<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>執筆された記事をレビューしたあとは、レビュー画面のボタンからステータスを変更できます。
 レビューについては後のガイドラインで詳しく説明します。</p>
 <p><img alt="レビュー後のステータス変更" src="../_images/review_status.png" /></p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3>記事を公開し終わったときは？<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>記事を公開し終わったあとは、ステータスを「完了」にします。
 まだWeb上に公開されていない場合でも、残タスクであるブログサービスやWordPressなどに記事を移したあとは「完了」にして良いでしょう。
 記事の完了については後のガイドラインで詳しく説明します。</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -193,12 +193,12 @@ Shodoでは執筆タスクのステータスを管理し、ワークフローに
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, Shodo.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
 </div>
             </div>
           </div>
       </page>
-    </div>
+    </div></div>
     
     
   </body>

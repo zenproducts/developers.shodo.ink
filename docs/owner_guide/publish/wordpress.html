@@ -2,25 +2,24 @@
 <html  lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
 <title>WordPress.orgとの連携を設定する - Shodoヘルプ</title>
     
-      <link rel="stylesheet" href="../../_static/pygments.css">
-      <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/theme.css " type="text/css" />
           <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
 
       
-      <script src="../../_static/theme-vendors.js"></script>
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../_static/theme-vendors.js"></script> -->
       <script src="../../_static/theme.js" defer></script>
       <link rel="canonical" href="https://help.shodo.ink/owner_guide/publish/wordpress.html" />
     
@@ -32,7 +31,8 @@
   </head>
 
   <body>
-    <div id="app" class="theme-container" :class="pageClasses">
+    <div id="app">
+    <div class="theme-container" :class="pageClasses">
 
 <navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../../index.html" class="home-link">
@@ -126,15 +126,15 @@
   
 </div>
 <hr>
-          <div class="content" role="main">
+          <div class="content" role="main" v-pre>
             
-  <div class="section" id="wordpress-org">
+  <section id="wordpress-org">
 <h1>WordPress.orgとの連携を設定する<a class="headerlink" href="#wordpress-org" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>Shodoで執筆・レビューした記事をWordPressに投稿できます。
 クリック1つで、画像を含めた記事の下書きが作成されます。</p>
 <p><strong>WordPress.orgはお客様自身のサーバーやレンタルサーバーで運用されているWordPressです</strong>。
 <a class="reference external" href="https://wordpress.com/">WordPress.com</a> とは違うものとなりますのでご注意ください。</p>
-<div class="section" id="id1">
+<section id="id1">
 <h2>WordPress.org連携ができるか確認する<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ご利用のWordPressが以下3つの項目を満たしているか確認していきましょう。</p>
 <ol class="simple">
@@ -143,7 +143,7 @@
 <li><p><a class="reference external" href="https://wordpress.org/plugins/application-passwords/">Application Passwords</a> というプラグインが必要です</p></li>
 </ol>
 <p>順に準備の方法を説明しますが、難しい場合はシステムの管理者にお問い合わせください。</p>
-<div class="section" id="rest-api">
+<section id="rest-api">
 <h3>REST APIに対応しているか確認する<a class="headerlink" href="#rest-api" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>WordPressで配信されているお客様のサイトのURLをご用意ください。この例では <code class="docutils literal notranslate"><span class="pre">https://www.shodo.ink/</span></code> として説明します。
 WordPressのURLに <code class="docutils literal notranslate"><span class="pre">/wp-json/wp/v2/</span></code> を追加して、ブラウザー（GoogleChromeやFirefox）でアクセスしてください
@@ -153,14 +153,14 @@ WordPressのURLに <code class="docutils literal notranslate"><span class="pre">
 （たとえば <code class="docutils literal notranslate"><span class="pre">https://www.shodo.ink/?rest_root=/wp/v2/</span></code> というURLになります）。</p>
 <p>この両方でうまくいかない場合、システムの管理者にお問い合わせください。
 成功した場合は、どちらのURLでアクセスできたかを覚えておいてください（あとで設定値として利用します）。</p>
-</div>
-<div class="section" id="httpsauthorization">
+</section>
+<section id="httpsauthorization">
 <h3>httpsに対応しているか、Authorizationヘッダーで認証できるかを確認する<a class="headerlink" href="#httpsauthorization" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>WordPressで動作しているサイトのURLは <code class="docutils literal notranslate"><span class="pre">https://...</span></code> になっていますか？もし <code class="docutils literal notranslate"><span class="pre">http://...</span></code> の場合、Shodoからの連携はできません。
 httpsの対応はShodoから安全に記事を連携するために必須となりますので、httpsに対応のうえご利用ください。</p>
 <p><strong>詳しくはシステムの管理者にお問い合わせください</strong>。</p>
-</div>
-<div class="section" id="application-passwords">
+</section>
+<section id="application-passwords">
 <h3>Application Passwordsプラグインをインストール・有効化する<a class="headerlink" href="#application-passwords" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>WordPress製のサイトへ外部のアプリケーションからアクセスするために、
 <a class="reference external" href="https://wordpress.org/plugins/application-passwords/">Application Passwords</a> というプラグインが必要です。</p>
@@ -170,12 +170,12 @@ httpsの対応はShodoから安全に記事を連携するために必須とな�
 <code class="docutils literal notranslate"><span class="pre">Application</span> <span class="pre">Passwords</span></code> というプラグインをインストールし、有効化してください。</p>
 <p><img alt="Application Passwordsをインストール" src="../../_images/publish_wordpress_2.jpeg" /></p>
 <p>インストール後、「有効化」ボタンをクリックするのを忘れないようご注意ください。</p>
-</div>
-</div>
-<div class="section" id="shodowordpress">
+</section>
+</section>
+<section id="shodowordpress">
 <h2>ShodoにWordPress連携を設定する<a class="headerlink" href="#shodowordpress" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>準備ができれば、ShodoからWordPressへ連携する設定を始めましょう。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h3>ユーザーアカウントとアプリケーションパスワードを用意する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ShodoからWordPressに投稿する際のユーザーをご用意ください。</p>
 <p>記事を投稿するため、権限グループが <strong>「投稿者」である専用のユーザー</strong> を必ずご用意ください。
@@ -188,8 +188,8 @@ httpsの対応はShodoから安全に記事を連携するために必須とな�
 <p><code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">new</span> <span class="pre">password</span> <span class="pre">for</span> <span class="pre">Shodo</span> <span class="pre">is</span> <span class="pre">[パスワード]</span></code> と表示されれば、そのパスワードをコピーしてください
 （ダイアログを閉じると、パスワードは2度と表示されなくなります）。</p>
 <p><img alt="アプリケーションパスワードをコピーする" src="../../_images/publish_wordpress_5.jpeg" /></p>
-</div>
-<div class="section" id="shodo">
+</section>
+<section id="shodo">
 <h3>Shodoの設定画面にペーストする<a class="headerlink" href="#shodo" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoの配信設定画面に移動してください。
 プロジェクトの画面から、サイドバーの「設定」→「配信」をクリックしてください。</p>
@@ -209,36 +209,36 @@ httpsの対応はShodoから安全に記事を連携するために必須とな�
 <p><strong>APIルートのURLはお間違いないようご注意ください</strong>。</p>
 <p>すべての項目を入力して「配信設定を追加する」をクリックすれば設定は完了です。
 記事の配信時にエラーが発生した場合は、プラグインが正しくインストールされているかや、設定したURLやユーザー名が正しいかを再度ご確認ください。</p>
-</div>
-</div>
-<div class="section" id="id3">
+</section>
+</section>
+<section id="id3">
 <h2>Shodoから記事をWordPressに配信する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>執筆画面の「配信」タブから、設定したWordPressに記事を配信できます。</p>
 <p><img alt="ShodoからWordPressに記事を配信する" src="../../_images/publish_wordpress_7.jpeg" /></p>
 <p>記事の内容だけでなく、画像も同時にWordPressに投稿されます。
 クリック1つで記事を作成できますので、Shodo上でしっかり原稿を仕上げてからすぐに記事の公開作業に移れます。</p>
 <p>なるべく <strong>Shodo上でチーム内の相互レビューをしてからWordPressに記事を作成することをお勧めします</strong> 。</p>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h2>Shodoから配信する動作の詳細<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下については必要であれば、WordPressを管理しているシステム管理者や、セキュリティ担当の方とご確認ください。</p>
-<div class="section" id="id5">
+<section id="id5">
 <h3>セキュリティ上の注意<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoは入力されたURLに対し、記事の本文やアプリケーションパスワードを送信します。
 誤ったURLを設定した場合、そのURLに対して秘匿な情報が送信されてしまいます。
 もし誤ったURLを設定してしまった場合は、作成したアプリケーションパスワードを「取消」して再発行してください。</p>
 <p>また、Shodoからご利用のWordPressに記事を配信する際は、インターネット経由で送信されます。
 VPNや専用回線、IP制限などは利用できませんのでご了承ください。</p>
-</div>
-<div class="section" id="id6">
+</section>
+<section id="id6">
 <h3>認証に失敗するときはシステム構成が原因のことも<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Shodoから記事を連携する際に <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> ヘッダーを使って認証します。
 ホスティングされている環境がAuthorizationヘッダーをWordPressに送信するよう設定されているか確認ください。
 CDN、リバースプロキシー、ロードバランサーを利用している場合、WordPressの本体にAuthorizationヘッダーが送られない場合があります。
 Authorizationヘッダーが送付されない場合、記事の配信時に認証失敗となりますのでご注意ください。</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -255,12 +255,12 @@ Authorizationヘッダーが送付されない場合、記事の配信時に認�
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, Shodo.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
 </div>
             </div>
           </div>
       </page>
-    </div>
+    </div></div>
     
     
   </body>

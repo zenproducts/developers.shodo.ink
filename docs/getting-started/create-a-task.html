@@ -2,25 +2,24 @@
 <html  lang="ja">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
 <title>執筆しよう - Shodoヘルプ</title>
     
-      <link rel="stylesheet" href="../_static/pygments.css">
-      <link rel="stylesheet" href="../_static/theme.css">
-      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
           <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-
       <!-- sphinx script_files -->
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
 
       
-      <script src="../_static/theme-vendors.js"></script>
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
       <link rel="canonical" href="https://help.shodo.ink/getting-started/create-a-task.html" />
     
@@ -32,7 +31,8 @@
   </head>
 
   <body>
-    <div id="app" class="theme-container" :class="pageClasses">
+    <div id="app">
+    <div class="theme-container" :class="pageClasses">
 
 <navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
@@ -124,13 +124,13 @@
   
 </div>
 <hr>
-          <div class="content" role="main">
+          <div class="content" role="main" v-pre>
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>執筆しよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>記事を執筆するには、<a class="reference external" href="https://app.shodo.ink/">Shodoアプリ</a> にアクセスし、サイドバーからプロジェクトを選択してください。
 プロジェクトを選択できれば、サイドバーから「新しい執筆」をクリックします。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2>執筆タスクを作る<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>執筆したい記事の状況によって、「すぐに執筆」するか「あとで執筆」するかを選べます。</p>
 <p><img alt="執筆をどうするか" src="../_images/create_task_1.jpeg" /></p>
@@ -171,8 +171,8 @@
     </tr>
   </tbody>
 </table><p>執筆タスクが書き終われば、画面下部の「すぐに執筆する」や「あとで執筆する」をクリックしてください。</p>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h2>なぜ執筆タスクを作るのか<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>なぜ単に記事を書くだけでなく、このように「執筆」として管理するのでしょうか？
 Shodoでは記事のバージョン管理やレビューを行えます。1枚の記事でなく、それらをまとめて「書きたいこと」として管理するために執筆タスクを作ります。</p>
@@ -202,8 +202,8 @@ Shodoでは記事のバージョン管理やレビューを行えます。1枚�
 <p>とくに、他の人に執筆を依頼する場合や、すぐに内容を書き始めない場合は執筆タスクの説明をしっかり書いておくことをオススメします。
 いざ書くときに「何を書けば良いのだろう？」と悩んで時間を無駄にしたり、温度感や読者ターゲットが想定と大きく違う記事を書いてしまう問題を避けられます。</p>
 <p>執筆タスクについて分かった後は、Shodoの先進的なポイントでもあるステータス管理について知っていきましょう。</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -220,12 +220,12 @@ Shodoでは記事のバージョン管理やレビューを行えます。1枚�
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021, Shodo.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
 </div>
             </div>
           </div>
       </page>
-    </div>
+    </div></div>
     
     
   </body>

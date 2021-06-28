@@ -10,3 +10,4 @@ Shodo.ink ヘルプドキュメント
 
    getting-started/index
    owner_guide/index
+   support/index

@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = "Shodo Help"
-copyright = "2021, Shodo"
-author = "Shodo"
+copyright = "2022, Shodo"
+author = "ZenProducts Inc."
 
 
 # -- General configuration ---------------------------------------------------
@@ -28,7 +28,7 @@ author = "Shodo"
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "recommonmark",
+    "myst_parser",
     "sphinx.ext.githubpages",
 ]
 

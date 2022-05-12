@@ -1,0 +1,6 @@
+# 記事の配信（連携）を設定する
+
+```{toctree}
+wordpress
+hatena
+```

@@ -3,7 +3,7 @@
 <navbar @toggle-sidebar="toggleSidebar">
   <router-link to="{{pathto(master_doc)}}" class="home-link">
     {% if logo %}
-    <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Shodo Logo"/>
+    <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Shodo Logo" width="138" />
     {% else %}
     <span class="site-name">{{ project|e }}</span>
     {% endif %}

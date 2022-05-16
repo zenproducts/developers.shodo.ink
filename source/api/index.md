@@ -130,8 +130,8 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
 ### クエリーパラメーター
 
 * `page`：ページネーションの番号を数値で指定
-* `status_ready`：指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得
-* `in_tree`：指定すると「フォルダー」内の記事のみ取得
+* `status_ready`：`1`を指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得
+* `in_tree`：`1`を指定すると「フォルダー」内の記事のみ取得
 
 (api-files-detail)=
 ### 記事ファイル詳細API
@@ -222,7 +222,8 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
     * `-due_datetime`：タスクの期限の降順（期限なしは末尾）
     * `title`：タイトルの昇順
     * `-like_count`：「いいね」数の降順
-* `status`：執筆タスクのステータスを指定
+* `status`：執筆タスクのステータス（ボン号）を指定
+* `status-open`：`1`を指定して、アイディア、執筆中、レビューとレビューOKのタスクのみに絞り込み
 * `assign__username`：アサインされたメンバーの `username` を指定
 
 (api-tasks-detail)=

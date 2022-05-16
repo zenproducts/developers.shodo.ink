@@ -7,5 +7,6 @@
 
 getting-started/index
 owner_guide/index
+api/index
 support/index
 ```

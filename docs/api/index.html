@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html  lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<title>API・システム連携 - Shodoヘルプ</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+          <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+      <link rel="canonical" href="https://help.shodo.ink/api/index.html" />
+    
+      <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <link rel="index" title="索引" href="../genindex.html" />
+  <link rel="search" title="検索" href="../search.html" />
+  <link rel="next" title="サポート・QA" href="../support/index.html" />
+  <link rel="prev" title="はてなブログとの連携を設定する" href="../owner_guide/publish/hatena.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses">
+
+<navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+    <img class="logo" src="../_static/ShodoHelpLogo.png" alt="Shodo Logo" width="138" />
+    
+  </router-link>
+  <a href="https://shodo.ink/" target="_blank" class="nav-link external">Shodoへ戻る<outboundlink/></a>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">クイック検索</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="検索" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#shodo-ink">shodo.ink ヘルプドキュメント</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../getting-started/index.html" class="reference internal ">Shodoで始めよう</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../owner_guide/index.html" class="reference internal ">管理者向けガイド</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">API・システム連携</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#api-root" class="reference internal">APIルート</a></li>
+                
+                  <li class="toctree-l2"><a href="#authentication" class="reference internal">認証</a></li>
+                
+                  <li class="toctree-l2"><a href="#models" class="reference internal">基本情報</a></li>
+                
+                  <li class="toctree-l2"><a href="#api-files" class="reference internal">記事ファイルAPI</a></li>
+                
+                  <li class="toctree-l2"><a href="#api-tasks" class="reference internal">タスクAPI</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../support/index.html" class="reference internal ">サポート・QA</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>API・システム連携</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../owner_guide/publish/hatena.html"
+       title="前の章へ">← はてなブログとの連携を設定する</a>
+  </li>
+  <li class="next">
+    <a href="../support/index.html"
+       title="次の章へ">サポート・QA →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="api">
+<h1><a class="toc-backref" href="#id15">API・システム連携</a><a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>🚀ようこそ🚀</p>
+<p>Shodoの公開APIの利用方法を説明します。</p>
+<div class="contents topic" id="id1">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#api" id="id15">API・システム連携</a></p>
+<ul>
+<li><p><a class="reference internal" href="#api-root" id="id16">APIルート</a></p></li>
+<li><p><a class="reference internal" href="#authentication" id="id17">認証</a></p></li>
+<li><p><a class="reference internal" href="#models" id="id18">基本情報</a></p></li>
+<li><p><a class="reference internal" href="#api-files" id="id19">記事ファイルAPI</a></p>
+<ul>
+<li><p><a class="reference internal" href="#api-files-example" id="id20">レスポンスの例</a></p></li>
+<li><p><a class="reference internal" href="#api-files-response" id="id21">レスポンスの意味</a></p></li>
+<li><p><a class="reference internal" href="#api-files-query" id="id22">クエリーパラメーター</a></p></li>
+<li><p><a class="reference internal" href="#api-files-detail" id="id23">記事ファイル詳細API</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#api-tasks" id="id24">タスクAPI</a></p>
+<ul>
+<li><p><a class="reference internal" href="#api-tasks-example" id="id25">レスポンスの例</a></p></li>
+<li><p><a class="reference internal" href="#api-tasks-response" id="id26">レスポンスの意味</a></p></li>
+<li><p><a class="reference internal" href="#api-tasks-query" id="id27">クエリーパラメーター</a></p></li>
+<li><p><a class="reference internal" href="#api-tasks-detail" id="id28">タスク詳細API</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="api-root">
+<span id="id2"></span><h2><a class="toc-backref" href="#id16">APIルート</a><a class="headerlink" href="#api-root" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>組織の英数名（スラッグ）と、プロジェクトの英数名を指定します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">shodo</span><span class="o">.</span><span class="n">ink</span><span class="o">/@</span><span class="p">{</span><span class="n">organization</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">project</span><span class="p">}</span><span class="o">/</span>
+</pre></div>
+</div>
+</section>
+<section id="authentication">
+<span id="id3"></span><h2><a class="toc-backref" href="#id17">認証</a><a class="headerlink" href="#authentication" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Shodoのプロジェクトより、「API連携」設定画面 で、トークンを発行してください。</p>
+<p>以下のようにHTTPヘッダーからトークンを指定します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="p">{</span><span class="n">token</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="models">
+<span id="id4"></span><h2><a class="toc-backref" href="#id18">基本情報</a><a class="headerlink" href="#models" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ShodoのAPIは現状、「記事」と「タスク」のデータ取得にのみ対応しております。</p>
+<p>執筆したMarkdownを「記事」、執筆の管理をしているものを「タスク」といいます。
+記事は執筆タスクごとに最新のファイルのみ取得できます。</p>
+<p>執筆のステータスは以下の数値で表現されます：</p>
+<ul class="simple">
+<li><p>アイディア：5</p></li>
+<li><p>執筆中：30</p></li>
+<li><p>レビュー：50</p></li>
+<li><p>レビューOK：60</p></li>
+<li><p>完了：70</p></li>
+<li><p>却下：90</p></li>
+</ul>
+</section>
+<section id="api-files">
+<span id="id5"></span><h2><a class="toc-backref" href="#id19">記事ファイルAPI</a><a class="headerlink" href="#api-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>作成されたMarkdownの記事を取得するAPIです。
+ファイルシステムへ保存するためや、ヘッドレスCMSとしてご利用ください。</p>
+<p>APIのURL：<code class="docutils literal notranslate"><span class="pre">https://api.shodo.ink/&#64;{organization}/{project}/files/</span></code></p>
+<section id="api-files-example">
+<span id="id6"></span><h3><a class="toc-backref" href="#id20">レスポンスの例</a><a class="headerlink" href="#api-files-example" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.shodo.ink/@org/project/files/?page=2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+      <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nt">&quot;directory_path&quot;</span><span class="p">:</span> <span class="s2">&quot;ブログ/新着ニュース&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;執筆の「いいね」を使って良い感じのネタを決めよう.md&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;# タイトル\n\n記事の本文&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;committed_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-04-04T00:00:00.976185+09:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;task&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+        <span class="nt">&quot;status_display&quot;</span><span class="p">:</span> <span class="s2">&quot;完了&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;執筆の「いいね」を使って良い感じのネタを決めよう&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;due_datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-06-18T12:00:00+09:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;assign_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="nt">&quot;icon_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://media.shodousercontents.com/...jpg&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;Kiyohara Hiroki&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;hirokiky&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;reviewer_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+          <span class="nt">&quot;icon_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://media.shodousercontents.com/...jpg&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;shodo.ink&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;shodo.ink&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;images&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-04-04T00:00:00.976185+09:00&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://media.shodousercontents.com/...jpg&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>たとえば以下のようなコマンドでご利用いただけます。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
+</pre></div>
+</div>
+</section>
+<section id="api-files-response">
+<span id="id7"></span><h3><a class="toc-backref" href="#id21">レスポンスの意味</a><a class="headerlink" href="#api-files-response" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>一覧の内容は <code class="docutils literal notranslate"><span class="pre">results</span></code> にあります。データがまだ続いている場合は <code class="docutils literal notranslate"><span class="pre">next</span></code> に次のページのURLが格納されています。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code>：執筆タスクの番号</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code>：記事のバージョン番号</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">directory_path</span></code>：タスクの「フォルダー」に対応した、ファイルを保存するディレクトリーのパス（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename</span></code>：執筆タスクのタイトルを元にした、ファイル名として保存できる記事の名前</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code>：Markdownファイルの中身（全文）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">committed_at</span></code>：記事が作成された日時</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>：執筆タスクのステータス（番号）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status_display</span></code>：執筆タスクのステータス（表示名）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>：執筆タスクのタイトル</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">due_datetime</span></code>：タスクの期限</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assign_data</span></code>：アサインされたメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reviewer_data</span></code>：レビュアーのメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">images</span></code>：記事中のShodoにアップロードされた画像（<code class="docutils literal notranslate"><span class="pre">body</span></code> 内の順序）</p></li>
+</ul>
+</section>
+<section id="api-files-query">
+<span id="id8"></span><h3><a class="toc-backref" href="#id22">クエリーパラメーター</a><a class="headerlink" href="#api-files-query" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">page</span></code>：ページネーションの番号を数値で指定</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status_ready</span></code>：指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_tree</span></code>：指定すると「フォルダー」内の記事のみ取得</p></li>
+</ul>
+</section>
+<section id="api-files-detail">
+<span id="id9"></span><h3><a class="toc-backref" href="#id23">記事ファイル詳細API</a><a class="headerlink" href="#api-files-detail" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>APIのURL：<code class="docutils literal notranslate"><span class="pre">https://api.shodo.ink/&#64;{organization}/{project}/files/{number}/</span></code></p>
+<p>執筆タスクの <code class="docutils literal notranslate"><span class="pre">number</span></code> を指定して、1つの記事を取得できます。
+内容は記事の一覧APIと同じです。</p>
+</section>
+</section>
+<section id="api-tasks">
+<span id="id10"></span><h2><a class="toc-backref" href="#id24">タスクAPI</a><a class="headerlink" href="#api-tasks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>執筆タスクの一覧を取得するAPIです。新しく作成された記事の順に取得できます。</p>
+<p>APIのURL：<code class="docutils literal notranslate"><span class="pre">https://api.shodo.ink/&#64;{organization}/{project}/tasks/</span></code></p>
+<section id="api-tasks-example">
+<span id="id11"></span><h3><a class="toc-backref" href="#id25">レスポンスの例</a><a class="headerlink" href="#api-tasks-example" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;https://api.shodo.ink/@org/project/tasks/?page=2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;project&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;無題&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+      <span class="nt">&quot;status_display&quot;</span><span class="p">:</span> <span class="s2">&quot;執筆&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;読者の方は〇〇を想定しています。\nShodoで執筆する概要がつかめる記事にします。\n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;body_rendered&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;p&gt;読者の方は〇〇を想定しています。&lt;br&gt;\nShodoで執筆する概要がつかめる記事にします。&lt;/p&gt;\n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;due_datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-04-04T00:00:00.976185+09:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;assign_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;icon_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://media.shodousercontents.com/...jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;Kiyohara Hiroki&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;hirokiky&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;reviewer_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nt">&quot;icon_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://media.shodousercontents.com/...jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;shodo.ink&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;shodo.ink&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;created_by&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;icon_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://media.shodousercontents.com/...jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;Kiyohara Hiroki&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;hirokiky&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-04-04T00:00:00.976185+09:00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;like_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;review_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;review_solved_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="api-tasks-response">
+<span id="id12"></span><h3><a class="toc-backref" href="#id26">レスポンスの意味</a><a class="headerlink" href="#api-tasks-response" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>一覧の内容は <code class="docutils literal notranslate"><span class="pre">results</span></code> にあります。データがまだ続いている場合は <code class="docutils literal notranslate"><span class="pre">next</span></code> に次のページのURLが格納されています。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">project</span></code>：プロジェクトのID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code>：執筆タスクの番号</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>：執筆タスクのタイトル</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>：執筆タスクのステータス（番号）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status_display</span></code>：執筆タスクのステータス（表示名）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">due_datetime</span></code>：タスクの期限</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assign_data</span></code>：アサインされたメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reviewer_data</span></code>：レビュアーのメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">created_by</span></code>：タスクを作成したメンバーの情報</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>：タスクが作成された日時</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">like_count</span></code>：「いいね」された数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">review_count</span></code>：レビューされたコメントの数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">review_solved_count</span></code>：解決されたレビューコメントの数</p></li>
+</ul>
+</section>
+<section id="api-tasks-query">
+<span id="id13"></span><h3><a class="toc-backref" href="#id27">クエリーパラメーター</a><a class="headerlink" href="#api-tasks-query" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ordering</span></code>：一覧で取得する順序</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code>：執筆タスクの番号の昇順</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-number</span></code>：執筆タスクの番号の降順</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">due_datetime</span></code>：タスクの期限の昇順（期限なしは末尾）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-due_datetime</span></code>：タスクの期限の降順（期限なしは末尾）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>：タイトルの昇順</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-like_count</span></code>：「いいね」数の降順</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>：執筆タスクのステータスを指定</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assign__username</span></code>：アサインされたメンバーの <code class="docutils literal notranslate"><span class="pre">username</span></code> を指定</p></li>
+</ul>
+</section>
+<section id="api-tasks-detail">
+<span id="id14"></span><h3><a class="toc-backref" href="#id28">タスク詳細API</a><a class="headerlink" href="#api-tasks-detail" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>APIのURL：<code class="docutils literal notranslate"><span class="pre">https://api.shodo.ink/&#64;{organization}/{project}/tasks/{number}/</span></code></p>
+<p>執筆タスクの <code class="docutils literal notranslate"><span class="pre">number</span></code> を指定して、1つの記事を取得できます。
+内容は記事の一覧APIと同じです。</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../owner_guide/publish/hatena.html"
+       title="前の章へ">← はてなブログとの連携を設定する</a>
+  </li>
+  <li class="next">
+    <a href="../support/index.html"
+       title="次の章へ">サポート・QA →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2022, Shodo.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

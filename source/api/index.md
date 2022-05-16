@@ -215,6 +215,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 (api-tasks-query)=
 ### クエリーパラメーター
 
+* `page`：ページネーションの番号を数値で指定
 * `ordering`：一覧で取得する順序
     * `number`：執筆タスクの番号の昇順
     * `-number`：執筆タスクの番号の降順

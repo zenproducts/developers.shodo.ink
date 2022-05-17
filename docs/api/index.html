@@ -223,6 +223,8 @@
 <li><p>完了：70</p></li>
 <li><p>却下：90</p></li>
 </ul>
+<p>リクエストはプロジェクトごとに、1分間に60回まで許可されています。
+それ以上の回数をご要望の場合は<a class="reference external" href="https://shodo.ink/contact/">お問い合わせ</a>ください。</p>
 </section>
 <section id="api-files">
 <span id="id5"></span><h2><a class="toc-backref" href="#id19">記事ファイルAPI</a><a class="headerlink" href="#api-files" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -259,6 +261,10 @@
           <span class="nt">&quot;icon_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://media.shodousercontents.com/...jpg&quot;</span><span class="p">,</span>
           <span class="nt">&quot;fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;shodo.ink&quot;</span><span class="p">,</span>
           <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;shodo.ink&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;directory_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;新着ニュース&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;75e8f0b9-...-165d63069919&quot;</span>
         <span class="p">}</span>
       <span class="p">},</span>
       <span class="nt">&quot;images&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -295,6 +301,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">due_datetime</span></code>：タスクの期限</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assign_data</span></code>：アサインされたメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">reviewer_data</span></code>：レビュアーのメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">directory_data</span></code>：タスクのフォルダーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">images</span></code>：記事中のShodoにアップロードされた画像（<code class="docutils literal notranslate"><span class="pre">body</span></code> 内の順序）</p></li>
@@ -304,8 +311,10 @@
 <span id="id8"></span><h3><a class="toc-backref" href="#id22">クエリーパラメーター</a><a class="headerlink" href="#api-files-query" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">page</span></code>：ページネーションの番号を数値で指定</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">status_ready</span></code>：指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">in_tree</span></code>：指定すると「フォルダー」内の記事のみ取得</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assign__username</span></code>：指定したユーザーがアサインされた記事だけ取得</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">directory__name</span></code>：指定したフォルダーの記事だけ取得（当該フォルダーの直下にある記事のみ取得）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status_ready</span></code>：<code class="docutils literal notranslate"><span class="pre">1</span></code>を指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_tree</span></code>：<code class="docutils literal notranslate"><span class="pre">1</span></code>を指定すると「フォルダー」内の記事のみ取得</p></li>
 </ul>
 </section>
 <section id="api-files-detail">
@@ -353,6 +362,7 @@
         <span class="nt">&quot;fullname&quot;</span><span class="p">:</span> <span class="s2">&quot;Kiyohara Hiroki&quot;</span><span class="p">,</span>
         <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;hirokiky&quot;</span>
       <span class="p">},</span>
+      <span class="nt">&quot;directory&quot;</span><span class="p">:</span> <span class="s2">&quot;75e8f0b9-...-165d63069919&quot;</span><span class="p">,</span>
       <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-04-04T00:00:00.976185+09:00&quot;</span><span class="p">,</span>
       <span class="nt">&quot;like_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="nt">&quot;review_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -376,6 +386,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">assign_data</span></code>：アサインされたメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">reviewer_data</span></code>：レビュアーのメンバーの情報（未指定で <code class="docutils literal notranslate"><span class="pre">null</span></code>）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">created_by</span></code>：タスクを作成したメンバーの情報</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">directory</span></code>：タスクのフォルダーごとの一意な値</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>：タスクが作成された日時</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">like_count</span></code>：「いいね」された数</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">review_count</span></code>：レビューされたコメントの数</p></li>
@@ -385,6 +396,7 @@
 <section id="api-tasks-query">
 <span id="id13"></span><h3><a class="toc-backref" href="#id27">クエリーパラメーター</a><a class="headerlink" href="#api-tasks-query" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">page</span></code>：ページネーションの番号を数値で指定</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ordering</span></code>：一覧で取得する順序</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span></code>：執筆タスクの番号の昇順</p></li>
@@ -395,7 +407,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">-like_count</span></code>：「いいね」数の降順</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>：執筆タスクのステータスを指定</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>：執筆タスクのステータス（ボン号）を指定</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status-open</span></code>：<code class="docutils literal notranslate"><span class="pre">1</span></code>を指定して、アイディア、執筆中、レビューとレビューOKのタスクのみに絞り込み</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assign__username</span></code>：アサインされたメンバーの <code class="docutils literal notranslate"><span class="pre">username</span></code> を指定</p></li>
 </ul>
 </section>

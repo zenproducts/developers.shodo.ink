@@ -87,6 +87,10 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/files/`
           "icon_url": "https://media.shodousercontents.com/...jpg",
           "fullname": "shodo.ink",
           "username": "shodo.ink"
+        },
+        "directory_data": {
+          "name": "新着ニュース",
+          "uuid": "75e8f0b9-...-165d63069919"
         }
       },
       "images": [
@@ -124,12 +128,15 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
     * `due_datetime`：タスクの期限
     * `assign_data`：アサインされたメンバーの情報（未指定で `null`）
     * `reviewer_data`：レビュアーのメンバーの情報（未指定で `null`）
+    * `directory_data`：タスクのフォルダーの情報（未指定で `null`）
 * `images`：記事中のShodoにアップロードされた画像（`body` 内の順序）
 
 (api-files-query)=
 ### クエリーパラメーター
 
 * `page`：ページネーションの番号を数値で指定
+* `assign__username`：指定したユーザーがアサインされた記事だけ取得
+* `directory__name`：指定したフォルダーの記事だけ取得（当該フォルダーの直下にある記事のみ取得）  
 * `status_ready`：`1`を指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得
 * `in_tree`：`1`を指定すると「フォルダー」内の記事のみ取得
 
@@ -184,6 +191,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
         "fullname": "Kiyohara Hiroki",
         "username": "hirokiky"
       },
+      "directory": "75e8f0b9-...-165d63069919",
       "created_at": "2022-04-04T00:00:00.976185+09:00",
       "like_count": 0,
       "review_count": 0,
@@ -207,6 +215,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 * `assign_data`：アサインされたメンバーの情報（未指定で `null`）
 * `reviewer_data`：レビュアーのメンバーの情報（未指定で `null`）
 * `created_by`：タスクを作成したメンバーの情報
+* `directory`：タスクのフォルダーごとの一意な値  
 * `created_at`：タスクが作成された日時
 * `like_count`：「いいね」された数
 * `review_count`：レビューされたコメントの数

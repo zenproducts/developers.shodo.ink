@@ -61,7 +61,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/files/`
 ```json
 {
   "count": 30,
-  "next": "https://api.shodo.ink/@org/project/files/?page=2",
+  "next": "?page=2",
   "previous": null,
   "results": [
     {
@@ -161,7 +161,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 ```json
 {
   "count": 50,
-  "next": "https://api.shodo.ink/@org/project/tasks/?page=2",
+  "next": "?page=2",
   "previous": null,
   "results": [
     {

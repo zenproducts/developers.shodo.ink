@@ -7,6 +7,18 @@ Shodoの公開APIの利用方法を説明します。
 ```{contents}
 ```
 
+(api-command)=
+## コマンド
+
+Shodo上のMarkdownと画像を一括でダウンロードできるコマンドが使えます。
+
+```bash
+$ pip install shodo
+$ shodo download --target=docs
+```
+
+詳しくは [コマンドのREADME](https://github.com/zenproducts/shodo-python/) をご確認ください。
+
 (api-root)=
 ## APIルート
 

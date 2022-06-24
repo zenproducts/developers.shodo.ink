@@ -4,10 +4,6 @@
 
 Shodoの公開APIの利用方法を説明します。
 
-```{contents}
-```
-
-(api-command)=
 ## コマンド
 
 Shodo上のMarkdownと画像を一括でダウンロードできるコマンドが使えます。
@@ -19,7 +15,6 @@ $ shodo download --target=docs
 
 詳しくは [コマンドのREADME](https://github.com/zenproducts/shodo-python/) をご確認ください。
 
-(api-root)=
 ## APIルート
 
 組織の英数名（スラッグ）と、プロジェクトの英数名を指定します。
@@ -28,7 +23,6 @@ $ shodo download --target=docs
 https://api.shodo.ink/@{organization}/{project}/
 ```
 
-(authentication)=
 ## 認証
 
 Shodoのプロジェクトより、「API連携」設定画面 で、トークンを発行してください。
@@ -39,7 +33,6 @@ Shodoのプロジェクトより、「API連携」設定画面 で、トーク�
 Authorization: Bearer {token}
 ```
 
-(models)=
 ## 基本情報
 
 ShodoのAPIは現状、「記事」と「タスク」のデータ取得にのみ対応しております。
@@ -59,7 +52,6 @@ ShodoのAPIは現状、「記事」と「タスク」のデータ取得にのみ
 リクエストはプロジェクトごとに、1分間に60回まで許可されています。
 それ以上の回数をご要望の場合は[お問い合わせ](https://shodo.ink/contact/)ください。
 
-(api-files)=
 ## 記事ファイルAPI
 
 作成されたMarkdownの記事を取得するAPIです。
@@ -67,7 +59,6 @@ ShodoのAPIは現状、「記事」と「タスク」のデータ取得にのみ
 
 APIのURL：`https://api.shodo.ink/@{organization}/{project}/files/`
 
-(api-files-example)=
 ### レスポンスの例
 
 ```json
@@ -122,7 +113,6 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/files/`
 $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
 ```
 
-(api-files-response)=
 ### レスポンスの意味
 
 一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。 
@@ -143,7 +133,6 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
     * `directory_data`：タスクのフォルダーの情報（未指定で `null`）
 * `images`：記事中のShodoにアップロードされた画像（`body` 内の順序）
 
-(api-files-query)=
 ### クエリーパラメーター
 
 * `page`：ページネーションの番号を数値で指定
@@ -152,7 +141,6 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
 * `status_ready`：`1`を指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得
 * `in_tree`：`1`を指定すると「フォルダー」内の記事のみ取得
 
-(api-files-detail)=
 ### 記事ファイル詳細API
 
 APIのURL：`https://api.shodo.ink/@{organization}/{project}/files/{number}/`
@@ -160,14 +148,12 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/files/{number}/`
 執筆タスクの `number` を指定して、1つの記事を取得できます。
 内容は記事の一覧APIと同じです。
 
-(api-tasks)=
 ## タスクAPI
 
 執筆タスクの一覧を取得するAPIです。新しく作成された記事の順に取得できます。
 
 APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 
-(api-tasks-example)=
 ### レスポンスの例
 
 ```json
@@ -213,7 +199,6 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 }
 ```
 
-(api-tasks-response)=
 ### レスポンスの意味
 
 一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。 
@@ -233,7 +218,6 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 * `review_count`：レビューされたコメントの数
 * `review_solved_count`：解決されたレビューコメントの数
 
-(api-tasks-query)=
 ### クエリーパラメーター
 
 * `page`：ページネーションの番号を数値で指定
@@ -248,10 +232,10 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 * `status-open`：`1`を指定して、アイディア、執筆中、レビューとレビューOKのタスクのみに絞り込み
 * `assign__username`：アサインされたメンバーの `username` を指定
 
-(api-tasks-detail)=
 ### タスク詳細API
 
 APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/{number}/`
 
 執筆タスクの `number` を指定して、1つの記事を取得できます。
 内容は記事の一覧APIと同じです。
+

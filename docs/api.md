@@ -35,7 +35,7 @@ Authorization: Bearer {token}
 
 ## 基本情報
 
-ShodoのAPIは現状、「記事」と「タスク」のデータ取得にのみ対応しております。
+ShodoのAPIは現状、「記事」と「タスク」のデータ取得にのみ一般公開されています。
 
 執筆したMarkdownを「記事」、執筆の管理をしているものを「タスク」といいます。
 記事は執筆タスクごとに最新のファイルのみ取得できます。
@@ -51,6 +51,91 @@ ShodoのAPIは現状、「記事」と「タスク」のデータ取得にのみ
 
 リクエストはプロジェクトごとに、1分間に60回まで許可されています。
 それ以上の回数をご要望の場合は[お問い合わせ](https://shodo.ink/contact/)ください。
+
+## 校正API
+
+> **Warning**
+> 校正APIは現在、一般公開されていません。
+
+記事や文章を校正するAPIです。
+
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/lint/`
+
+校正APIに文章をPOSTします。
+最大で4万文字まで対応しています。
+
+```json
+{
+  "body": "校正する本文"
+}
+```
+
+### レスポンスの例
+
+```json
+{
+  "lint_id": "6d639e5f-8bfe-43d7-ac24-8bb6b97ba936"
+}
+```
+
+Shodoの校正は非同期的に実行されます。
+`lint_id` としてShodoが校正した結果を受け取るIDが返されます。
+
+たとえば以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/ text="校正する本文"
+```
+
+## 校正結果API
+
+投稿した本文の校正結果を取得するAPIです。
+
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/lint/{lint_id}/`
+
+### レスポンスの例
+
+```json
+{
+  "messages": [
+    {
+      "after": "トル",
+      "before": "が",
+      "from": {
+        "ch": 21,
+        "line": 669
+      },
+      "index": 17619,
+      "message": "もしかしてAI",
+      "severity": "warning",
+      "to": {
+        "ch": 22,
+        "line": 669
+      }
+    }
+  ],
+  "status": "done",
+  "updated": 1658379913
+}
+```
+たとえば以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f-8bfe-43d7-ac24-8bb6b97ba936/
+```
+
+### レスポンスの意味
+
+* messages:
+    * message: 指摘の内容
+    * from: 指摘の位置（{ line: 行, ch: 列 }）。0から始まる順番。
+    * to: 指摘の終わり位置（{ line: 行, ch: 列 }）。0から始まる順番。
+    * index: 指摘のインデックス番号。0から始まる順番。
+    * before: 指摘対象のテキスト
+    * after: 推奨される置き換えテキスト
+    * severity: error、warningによる重要度
+* status: done（完了）、processing（校正中）、failed（失敗）の3つの状態
+* updated: 最後に情報が更新された日時（UNIXタイムスタンプ）
 
 ## 記事ファイルAPI
 
@@ -115,7 +200,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
 
 ### レスポンスの意味
 
-一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。 
+一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。
 
 * `number`：執筆タスクの番号
 * `version`：記事のバージョン番号
@@ -137,7 +222,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
 
 * `page`：ページネーションの番号を数値で指定
 * `assign__username`：指定したユーザーがアサインされた記事だけ取得
-* `directory__name`：指定したフォルダーの記事だけ取得（当該フォルダーの直下にある記事のみ取得）  
+* `directory__name`：指定したフォルダーの記事だけ取得（当該フォルダーの直下にある記事のみ取得）
 * `status_ready`：`1`を指定すると「レビューOK」、「完了」になった執筆タスクの記事だけ取得
 * `in_tree`：`1`を指定すると「フォルダー」内の記事のみ取得
 
@@ -201,7 +286,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 
 ### レスポンスの意味
 
-一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。 
+一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。
 
 * `project`：プロジェクトのID
 * `number`：執筆タスクの番号
@@ -212,7 +297,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 * `assign_data`：アサインされたメンバーの情報（未指定で `null`）
 * `reviewer_data`：レビュアーのメンバーの情報（未指定で `null`）
 * `created_by`：タスクを作成したメンバーの情報
-* `directory`：タスクのフォルダーごとの一意な値  
+* `directory`：タスクのフォルダーごとの一意な値
 * `created_at`：タスクが作成された日時
 * `like_count`：「いいね」された数
 * `review_count`：レビューされたコメントの数

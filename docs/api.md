@@ -88,6 +88,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/lint/{lint_id}/`
         "line": 669
       },
       "index": 17619,
+      "index_to": 17620,
       "message": "もしかしてAI",
       "severity": "warning",
       "to": {
@@ -113,6 +114,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
     * from: 指摘の位置（{ line: 行, ch: 列 }）。0から始まる順番。
     * to: 指摘の終わり位置（{ line: 行, ch: 列 }）。0から始まる順番。
     * index: 指摘のインデックス番号。0から始まる順番。
+    * index_to: 指摘の終わり位置のインデックス番号。
     * before: 指摘対象のテキスト
     * after: 推奨される置き換えテキスト
     * severity: error、warningによる重要度

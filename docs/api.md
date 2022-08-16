@@ -11,6 +11,7 @@ ShodoのAPIをコマンドから便利に使えます。
 
 ```bash
 $ pip install shodo
+$ shodo login
 $ shodo download --target=docs
 ```
 

@@ -12,7 +12,7 @@ ShodoのAPIをコマンドから便利に使えます。
 ```bash
 $ pip install shodo
 $ shodo login
-$ shodo download --target=docs
+$ shodo lint README.md
 ```
 
 詳しくは [コマンドのREADME](https://github.com/zenproducts/shodo-python/) をご確認ください。

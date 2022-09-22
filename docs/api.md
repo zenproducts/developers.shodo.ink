@@ -37,9 +37,6 @@ Authorization: Bearer {token}
 
 ## 校正API
 
-> **Warning**
-> 校正APIは現在、一般公開されていません。
-
 記事や文章を校正するAPIです。
 
 APIのURL：`https://api.shodo.ink/@{organization}/{project}/lint/`

@@ -64,7 +64,7 @@ Shodoの校正は非同期的に実行されます。
 たとえば以下のようなコマンドでご利用いただけます。
 
 ```bash
-$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/ text="校正する本文"
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/ body="校正する本文"
 ```
 
 ## 校正結果API

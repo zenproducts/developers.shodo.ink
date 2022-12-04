@@ -118,4 +118,4 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
 
 ## Post file API
 
-Please refer [./api.md] file (not translated yet).
+Please refer [APIドキュメント](./api.md) file (not translated yet).

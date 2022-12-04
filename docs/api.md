@@ -7,7 +7,7 @@ Shodoの公開APIの利用方法を説明します。
 ## コマンド
 
 ShodoのAPIをコマンドから便利に使えます。
-たとえばMarkdownと画像を一括でダウンロードできる機能を使えます。
+たとえばMarkdownファイルを校正するコマンドは以下のようになります。
 
 ```bash
 $ pip install shodo

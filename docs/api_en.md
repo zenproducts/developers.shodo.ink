@@ -85,7 +85,9 @@ API URL：`https://api.shodo.ink/@{organization}/{project}/lint/{lint_id}/`
       },
       "index": 17619,
       "message": "もしかしてAI",
-      "severity": "warning",
+      "severity": "error",
+      "operation": "delete",
+      "score": 0.9886295795440674,
       "to": {
         "ch": 22,
         "line": 669
@@ -112,6 +114,8 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
     * index: Index number starting from 0.
     * before: Text with Japanese problem.
     * after: Recommended text.
+    * operation: Which you should "delete" or "replace" the "before" word. null if it's unpredictable.
+    * score: Probability of proofreading changes
     * severity: Severity of the message (error or warning).
 * status: The status of proofreading process. done, processing, or failed.
 * updated: Last updated datetime (UNIX timestamp)

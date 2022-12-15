@@ -88,7 +88,9 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/lint/{lint_id}/`
       "index": 17619,
       "index_to": 17620,
       "message": "もしかしてAI",
-      "severity": "warning",
+      "severity": "error",
+      "operation": "delete",
+      "score": 0.9886295795440674,
       "to": {
         "ch": 22,
         "line": 669
@@ -115,6 +117,8 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
     * index_to: 指摘の終わり位置のインデックス番号。
     * before: 指摘対象のテキスト
     * after: 推奨される置き換えテキスト
+    * operation: 指摘対象のテキストを置き換える（`replace`）か削除するか（`delete`）。不明な場合 `null`。
+    * score: 校正の指摘がどれだけ確からしいかのスコア
     * severity: error、warningによる重要度
 * status: done（完了）、processing（校正中）、failed（失敗）の3つの状態
 * updated: 最後に情報が更新された日時（UNIXタイムスタンプ）

@@ -79,7 +79,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/lint/{lint_id}/`
 {
   "messages": [
     {
-      "after": "トル",
+      "after": "",
       "before": "が",
       "from": {
         "ch": 21,

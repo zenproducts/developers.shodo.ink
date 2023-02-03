@@ -120,6 +120,40 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
 * status: The status of proofreading process. done, processing, or failed.
 * updated: Last updated datetime (UNIX timestamp)
 
+## Proofreading multiple sentences
+
+Shodo's API allows you to submit multiple texts at once.
+Instead of `body`, you can specify a list of body texts with the parameter `bulk_body`.
+
+```json
+{
+  "bulk_body": ["本文1", "本文2"]
+}
+```
+
+The `messages` param of the proofreading result will be the result of each body.
+For example, if `bulk_body` contains two bodies, the `messages` will be a list of two elements.
+
+```json
+{
+  "messages": [
+    [
+      {
+        "after": "",
+        "before": "が",
+        "from": {
+          "ch": 0,
+          "line": 3
+        }
+      }
+    ],
+    []
+  ],
+  "status": "done",
+  "updated": 1658379913
+}
+```
+
 ## Post file API
 
 Please refer [APIドキュメント](./api.md) file (not translated yet).

@@ -123,6 +123,40 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
 * status: done（完了）、processing（校正中）、failed（失敗）の3つの状態
 * updated: 最後に情報が更新された日時（UNIXタイムスタンプ）
 
+## 複数文章の校正
+
+ShodoのAPIは複数の文章をまとめて投稿できます。
+`body` の代わりに `bulk_body` というパラメータで文章の一覧を指定してください。
+
+```json
+{
+  "bulk_body": ["校正する本文", "校正する本文2"]
+}
+```
+
+校正結果の `messages` は各本文ごとの結果になります。
+たとえば `bulk_body` に2つの本文を指定すると、 `messages` も2要素のリストとなります。
+
+```json
+{
+  "messages": [
+    [
+      {
+        "after": "",
+        "before": "が",
+        "from": {
+          "ch": 0,
+          "line": 3
+        }
+      }
+    ],
+    []
+  ],
+  "status": "done",
+  "updated": 1658379913
+}
+```
+
 ## 記事ファイルAPI
 
 作成されたMarkdownの記事を取得するAPIです。

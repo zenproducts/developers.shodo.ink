@@ -81,6 +81,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/lint/{lint_id}/`
     {
       "after": "",
       "before": "が",
+      "code": "ai_recommend",
       "from": {
         "ch": 21,
         "line": 669
@@ -110,7 +111,8 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
 ### レスポンスの意味
 
 * messages:
-    * message: 指摘の内容
+    * code: 指摘のコード
+    * message: 指摘のメッセージ
     * from: 指摘の位置（{ line: 行, ch: 列 }）。0から始まる順番。
     * to: 指摘の終わり位置（{ line: 行, ch: 列 }）。0から始まる順番。
     * index: 指摘のインデックス番号。0から始まる順番。

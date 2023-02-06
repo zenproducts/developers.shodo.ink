@@ -79,6 +79,7 @@ API URL：`https://api.shodo.ink/@{organization}/{project}/lint/{lint_id}/`
     {
       "after": "",
       "before": "が",
+      "code": "ai_recommend",
       "from": {
         "ch": 21,
         "line": 669
@@ -108,7 +109,8 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
 ### Response detail
 
 * messages:
-    * message: Proofreading detail
+    * code: Proofreading code
+    * message: Proofreading message detail
     * from: Starting position（{ line: line number, ch: column number }）. Starting from 0.
     * to: Ending position（{ line: line number, ch: column number }）. Starting from 0.
     * index: Index number starting from 0.

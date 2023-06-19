@@ -159,6 +159,42 @@ ShodoのAPIは複数の文章をまとめて投稿できます。
 }
 ```
 
+## 利用状況API
+
+利用状況APIは月次での利用文字数を取得できます。
+利用文字数は組織ごとにカウントされ、過去12ヶ月の利用状況を取得できます。
+
+API URL：`https://api.shodo.ink/@{organization}/{project}/usage/`
+
+### Response
+
+```json
+{
+  "usage": [
+      {"year":  2023, "month":  6, "amount":  24000},
+      {"year":  2023, "month":  5, "amount":  28000},
+      {"year":  2023, "month":  4, "amount":  32000},
+      {"year":  2023, "month":  3, "amount":  150129},
+      {"year":  2023, "month":  2, "amount":  4003},
+      {"year":  2023, "month":  1, "amount":  44000},
+      {"year":  2022, "month":  12, "amount":  48081},
+      {"year":  2022, "month":  11, "amount":  52000},
+      {"year":  2022, "month":  10, "amount":  56000},
+      {"year":  2022, "month":  9, "amount":  60022},
+      {"year":  2022, "month":  8, "amount":  64330},
+      {"year":  2022, "month":  7, "amount":  68830},
+      {"year":  2022, "month":  6, "amount":  72120}
+  ],
+  "monthly_mount":  160000 
+}
+```
+
+たとえば、以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/usage/
+```
+
 ## 記事ファイルAPI
 
 作成されたMarkdownの記事を取得するAPIです。

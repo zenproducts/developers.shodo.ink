@@ -156,6 +156,43 @@ For example, if `bulk_body` contains two bodies, the `messages` will be a list o
 }
 ```
 
+## Usage API
+
+Usage API will return monthly usage of the organization.
+The response will contain last 12 months of usage aggregation.
+
+API URL：`https://api.shodo.ink/@{organization}/{project}/usage/`
+
+### Response
+
+```json
+{
+  "usage": [
+      {"year":  2023, "month":  6, "amount":  24000},
+      {"year":  2023, "month":  5, "amount":  28000},
+      {"year":  2023, "month":  4, "amount":  32000},
+      {"year":  2023, "month":  3, "amount":  150129},
+      {"year":  2023, "month":  2, "amount":  4003},
+      {"year":  2023, "month":  1, "amount":  44000},
+      {"year":  2022, "month":  12, "amount":  48081},
+      {"year":  2022, "month":  11, "amount":  52000},
+      {"year":  2022, "month":  10, "amount":  56000},
+      {"year":  2022, "month":  9, "amount":  60022},
+      {"year":  2022, "month":  8, "amount":  64330},
+      {"year":  2022, "month":  7, "amount":  68830},
+      {"year":  2022, "month":  6, "amount":  72120}
+  ],
+  "monthly_mount":  160000 
+}
+```
+
+For example, you can use httpie to call this API.
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/usage/
+```
+
+
 ## Post file API
 
 Please refer [APIドキュメント](./api.md) file (not translated yet).

@@ -52,7 +52,11 @@ Up to 40,000 characters are allowed.
 
 ```json
 {
-  "lint_id": "6d639e5f-8bfe-43d7-ac24-8bb6b97ba936"
+  "lint_id": "6d639e5f-8bfe-43d7-ac24-8bb6b97ba936",
+  "monthly_amount": 1000000,
+  "current_usage": 116049,
+  "len_body": 8429,
+  "len_used": 8112
 }
 ```
 
@@ -64,6 +68,26 @@ For example, you can use httpie to call this API.
 ```bash
 $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/ text="校正する本文"
 ```
+
+### Counting and caching
+
+Shodo counts only Japanese sentences in the submitted body as the number of characters used.
+The number of characters will be less than the length of all submitted body.
+
+Submitted sentences will be cached, so if the same sentence is submitted again,
+Shodo won't count them as monthly usage.
+
+Each response of the proofreading API has the following meaning.
+
+* `lint_id`: ID to get the result of the proofreading.
+* `monthly_amount`: Number of characters available in the API (per month).
+* `current_usage`: Number of characters used this month.
+* `len_body`: Length of Japanese sentences of the submitted body.
+* `len_used`: Used number of character (subtracting the cache).
+
+For example, if all the cache is used, `len_used` will be `0`.
+The cache is valid for about 30 minutes, but the cache time is not guaranteed.
+Please be assured that the cache of the text is managed in a way that it is not leaked or affected by other users.
 
 ## Result API
 

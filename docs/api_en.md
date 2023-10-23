@@ -216,6 +216,113 @@ For example, you can use httpie to call this API.
 $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/usage/
 ```
 
+## Terms API
+
+You can set terms and variants for proofreading API.
+The terms and variants set by this API are the same as those set by the Shodo screen.
+
+API URL：`https://api.shodo.ink/@{organization}/{project}/terms/`
+
+### Response
+
+```json
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 100000,
+            "description": "",
+            "text": "Shodo",
+            "variants": [{"text":  "ShoDo"}],
+            "fuzzy_complement": false
+        }
+    ]
+}
+```
+
+Command example:
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/
+```
+
+### Response detail
+
+`results` contains the list of terms. If there are more data, `next` will contain the next page number (`?page=2`, etc.).
+
+* `id`：Term ID
+* `description`：Description for the term (won't be used for AI proofreading)
+* `text`：Term text
+* `variants`：List of variants（each variants will be like `{"text": "VariantText"}`）
+* `fuzzy_complement`： Whether to automatically detect fuzzy complements (if `true`, `variants` will be ignored)
+
+### Add terms and variants
+
+You can add terms and variants by `POST` method.
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/ text="Shodo"
+```
+
+You can specify `text` , `description` , `variants` , `fuzzy_complement` params.
+
+## Term detail API
+
+You can get the detail of the term by the following API.
+
+API URL：`https://api.shodo.ink/@{organization}/{project}/terms/{id}/`
+
+Command example:
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/1/
+```
+
+### Response detail
+
+```json
+{
+    "id": 100000,
+    "description": "",
+    "text": "Shodo",
+    "variants": [{"text":  "ShoDo"}],
+    "fuzzy_complement": false
+}
+```
+
+### Update terms and variants
+
+You can update terms and variants by `PUT` method.
+
+```bash
+$ http -A bearer -a d8eb...3359 PUT https://api.shodo.ink/@org/project/terms/1/ text="SHODO"
+```
+
+You can specify `text` , `description` , `variants` , `fuzzy_complement` params.
+
+### Delete terms and variants
+
+You can delete terms and variants by `DELETE` method.
+
+```bash
+$ http -A bearer -a d8eb...3359 DELETE https://api.shodo.ink/@org/project/terms/1/
+```
+
+## Delete all terms
+
+You can delete all terms and variants set in the project by the following API.
+
+API URL：`https://api.shodo.ink/@{organization}/{project}/terms/deleteall/`
+
+Send `POST` method to the API URL.
+
+Command example:
+
+```bash
+$ http -A bearer -a d8eb...3359 POST https://api.shodo.ink/@org/project/terms/deleteall/
+```
 
 ## Post file API
 

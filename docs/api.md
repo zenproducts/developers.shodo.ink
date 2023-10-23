@@ -216,6 +216,127 @@ API URL：`https://api.shodo.ink/@{organization}/{project}/usage/`
 $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/usage/
 ```
 
+## 用語・表記ゆれAPI
+
+校正APIで使われる用語と表記ゆれを設定するAPIです。
+このAPIで設定する表記ゆれは、Shodoの画面から設定する表記ゆれと同じものです。
+
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/terms/`
+
+リクエストはプロジェクトごとに、1分間に60回まで許可されています。
+それ以上の回数をご要望の場合は[お問い合わせ](https://shodo.ink/contact/)ください。
+
+### Response
+
+```json
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 100000,
+            "description": "",
+            "text": "Shodo",
+            "variants": [{"text":  "ShoDo"}],
+            "fuzzy_complement": false
+        }
+    ]
+}
+```
+
+たとえば、以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/
+```
+
+### レスポンスの意味
+
+一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページ番号（`?page=2` など）が格納されています。
+
+* `id`：用語のID
+* `description`：用語の説明（画面上でのみ利用されます）
+* `text`：用語の表記
+* `variants`：表記ゆれの一覧（`{"text": "表記ゆれ文字"}` として指定）
+* `fuzzy_complement`：表記ゆれの自動判定を行うかどうか（`true` の場合 `variants` は無効）
+
+### クエリーパラメーター
+
+* `page`：ページネーションの番号を数値で指定
+
+### 用語・表記ゆれの追加
+
+用語・表記ゆれの追加は `POST` メソッドで行います。
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/ text="Shodo"
+```
+
+`text` 、 `description` 、 `variants` 、 `fuzzy_complement` のパラメーターを指定できます。
+
+## 用語・表記ゆれ詳細API
+
+表記ゆれの詳細を取得します。
+
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/terms/{id}/`
+
+たとえば、以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/1/
+```
+
+### レスポンスの意味
+
+レスポンスは一覧と同じ内容です。
+
+```json
+{
+    "id": 100000,
+    "description": "",
+    "text": "Shodo",
+    "variants": [{"text":  "ShoDo"}],
+    "fuzzy_complement": false
+}
+```
+
+### 用語・表記ゆれの更新
+
+用語・表記ゆれの更新は `PUT` メソッドで行います。
+
+たとえば、以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 PUT https://api.shodo.ink/@org/project/terms/1/ text="SHODO"
+```
+
+パラメーターは用語・表記ゆれの追加と同じです。
+
+### 用語・表記ゆれの削除
+
+用語・表記ゆれの更新は `DELETE` メソッドで行います。
+
+たとえば、以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 DELETE https://api.shodo.ink/@org/project/terms/1/
+```
+
+## 用語・表記ゆれ一括削除API
+
+プロジェクトに設定されたすべての用語・表記ゆれを削除するAPIです。
+
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/terms/deleteall/`
+
+URLに対して `POST` メソッドを送信してください。
+
+たとえば、以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 POST https://api.shodo.ink/@org/project/terms/deleteall/
+```
+
 ## 記事ファイルAPI
 
 作成されたMarkdownの記事を取得するAPIです。
@@ -296,7 +417,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/files/
 
 ### レスポンスの意味
 
-一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。
+一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページ番号（`?page=2` など）が格納されています。
 
 * `number`：執筆タスクの番号
 * `version`：記事のバージョン番号
@@ -382,7 +503,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/`
 
 ### レスポンスの意味
 
-一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページのURLが格納されています。
+一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページ番号（`?page=2` など）が格納されています。
 
 * `project`：プロジェクトのID
 * `number`：執筆タスクの番号
@@ -419,4 +540,3 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/tasks/{number}/`
 
 執筆タスクの `number` を指定して、1つの記事を取得できます。
 内容は記事の一覧APIと同じです。
-

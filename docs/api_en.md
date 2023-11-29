@@ -140,9 +140,9 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
     * index: Index number starting from 0.
     * before: Text with Japanese problem.
     * after: Recommended text.
-    * operation: Which you should "delete" or "replace" the "before" word. null if it's unpredictable.
+    * operation: Which you should "delete", "replace", or "keep" the word. null if it's unpredictable.
     * score: Probability of proofreading changes
-    * severity: Severity of the message (error or warning).
+    * severity: Severity of the message (error, warning, or info).
 * status: The status of proofreading process. done, processing, or failed.
 * updated: Last updated datetime (UNIX timestamp)
 

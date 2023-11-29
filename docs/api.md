@@ -140,9 +140,9 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/lint/6d639e5f
     * index_to: 指摘の終わり位置のインデックス番号。
     * before: 指摘対象のテキスト
     * after: 推奨される置き換えテキスト
-    * operation: 指摘対象のテキストを置き換える（`replace`）か削除するか（`delete`）。不明な場合 `null`。
+    * operation: 指摘対象のテキストを置き換える（`replace`）か削除するか（`delete`）、保持するか（`keep`）。不明な場合 `null`。
     * score: 校正の指摘がどれだけ確からしいかのスコア
-    * severity: error、warningによる重要度
+    * severity: error、warning、infoによる重要度（infoは変更を求めない付帯情報）
 * status: done（完了）、processing（校正中）、failed（失敗）の3つの状態
 * updated: 最後に情報が更新された日時（UNIXタイムスタンプ）
 

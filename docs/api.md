@@ -440,7 +440,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/bio/people/
 
 人物に指定する「所属」を扱うAPIです。
 
-APIのURL：`https://api.shodo.ink/@{organization}/{project}/bio/people/`
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/bio/belongings/`
 
 ### Response
 

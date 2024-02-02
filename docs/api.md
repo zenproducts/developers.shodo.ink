@@ -344,6 +344,142 @@ URLに対して `POST` メソッドを送信してください。
 $ http -A bearer -a d8eb...3359 POST https://api.shodo.ink/@org/project/terms/deleteall/
 ```
 
+## 人物・著名人API
+
+**エンタープライズプランでオプション対応時に有効になります**
+
+校正APIで使われる人物情報を設定するAPIです。
+
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/bio/people/`
+
+リクエストはプロジェクトごとに、1分間に60回まで許可されています。
+それ以上の回数をご要望の場合は[お問い合わせ](https://shodo.ink/contact/)ください。
+
+### Response
+
+```json
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+          "id": "dec203d4-995e-4f59-9a7c-f057e1527006",
+          "belonging": "自民",
+          "last_name": "河野",
+          "first_name": "太郎",
+          "last_name_kana": "こうの",
+          "first_name_kana": "たろう",
+          "name": null,
+          "birth_date": null,
+          "prefixes": [],
+          "suffixes": [
+              "議員",
+              "衆議院議員",
+              "衆院議員",
+              "大臣",
+              "デジタル大臣",
+              "デジタル行財政改革担当",
+              "デジタル田園都市国家構想担当",
+              "行政改革担当",
+              "国家公務員制度担当",
+              "内閣府特命担当大臣（規制改革）",
+              "デジタル相",
+              "デジ相"
+          ],
+          "ref_urls": [
+              "https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/182.html",
+              "https://www.kantei.go.jp/jp/101_kishida/meibo/daijin/kono_taro.html"
+          ],
+          "is_english_name": false,
+          "is_representing_last_name": true,
+          "updated_by": "Shodo",
+          "updated_at": "2024-01-24T17:00:00+09:00"
+      }
+    ]
+}
+```
+
+たとえば、以下のようなコマンドでご利用いただけます。
+
+```bash
+$ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/bio/people/
+```
+
+### レスポンスの意味
+
+一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページ番号（`?page=2` など）が格納されています。
+
+* `id`：人物のID
+* `belonging`：所属の名前
+* `last_name`：人物の姓
+* `first_name`：人物の名前
+* `last_name_kana`：人物の姓（かな）
+* `first_name_kana`：人物の名前（かな）
+* `name`：名称（姓名で入力しない場合の名前）
+* `birth_date`：生年月日（設定した場合、「河野太郎大臣（61）」のような年齢が正しいかを判定）
+* `prefixes`：人物の先頭につく名前で所属以外のもの（「大リーグ・大谷翔平」など）
+* `suffixes`：人物の末尾につく名前（「大谷翔平選手」など）
+* `ref_urls`：その情報のもとになった情報ソース
+* `is_english_name`：英語名の場合 `true`
+* `is_representing_last_name`：姓を代表する名前の場合 `true` 。「河野大臣」のように姓だけでその人物を特定する場合
+* `updated_by`：情報を設定した人物（文字列で設定）
+* `updated_at`：情報を設定した日時
+
+### クエリーパラメーター
+
+* `page`：ページネーションの番号を数値で指定
+
+### 追加、詳細、更新API
+
+追加、詳細、更新APIについては表記ゆれ・用語APIと同様の仕様（POST内容等は人物の情報）で行います。
+
+## 所属API
+
+**エンタープライズプランでオプション対応時に有効になります**
+
+人物に指定する「所属」を扱うAPIです。
+
+APIのURL：`https://api.shodo.ink/@{organization}/{project}/bio/people/`
+
+### Response
+
+```json
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "id": "21a960ba-368d-4872-90a2-92089036007c",
+        "name": "自民",
+        "aliases": [
+            "自民党",
+            "自"
+        ],
+        "updated_at": "2024-02-01T15:56:52.140786+09:00"
+      }
+    ]
+}
+```
+
+### レスポンスの意味
+
+一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページ番号（`?page=2` など）が格納されています。
+
+* `id`：所属のID
+* `name`：所属の名前（プロジェクトごとに一意な値）
+* `alises`：所属の別名（「自民党・河野大臣」、「自・河野大臣」など複数のパターンで判定可能）
+* `updated_at`：情報を設定した日時
+
+### クエリーパラメーター
+
+* `page`：ページネーションの番号を数値で指定
+
+### 追加、詳細、更新API
+
+追加、詳細、更新APIについては表記ゆれ・用語APIと同様の仕様（POST内容等は人物の情報）で行います。
+
 ## 記事ファイルAPI
 
 作成されたMarkdownの記事を取得するAPIです。

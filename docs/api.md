@@ -411,7 +411,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/bio/people/
 一覧の内容は `results` にあります。データがまだ続いている場合は `next` に次のページ番号（`?page=2` など）が格納されています。
 
 * `id`：人物のID
-* `belonging`：所属の名前
+* `belonging`：所属の名前（事前に設定した下記「所属」の `name`）
 * `last_name`：人物の姓
 * `first_name`：人物の名前
 * `last_name_kana`：人物の姓（かな）

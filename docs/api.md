@@ -429,6 +429,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/bio/people/
 ### クエリーパラメーター
 
 * `page`：ページネーションの番号を数値で指定
+* `search`: 姓、名もしくは名称での検索。複数項目（姓と名など）を指定する場合スペース区切りで入力
 
 ### 追加、詳細、更新API
 

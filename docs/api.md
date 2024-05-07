@@ -246,6 +246,7 @@ APIのURL：`https://api.shodo.ink/@{organization}/{project}/terms/`
             "description": "",
             "text": "Shodo",
             "variants": [{"text":  "ShoDo"}],
+            "severity": "error",
             "fuzzy_complement": false
         }
     ]
@@ -266,6 +267,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/
 * `description`：用語の説明（画面上でのみ利用されます）
 * `text`：用語の表記
 * `variants`：表記ゆれの一覧（`{"text": "表記ゆれ文字"}` として指定）
+* `severity`: 表記ゆれの重大度（`error`、`warning`、`info` の3種類）
 * `fuzzy_complement`：表記ゆれの自動判定を行うかどうか（`true` の場合 `variants` は無効）
 
 ### クエリーパラメーター
@@ -280,7 +282,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/
 $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/ text="Shodo"
 ```
 
-`text` 、 `description` 、 `variants` 、 `fuzzy_complement` のパラメーターを指定できます。
+`text` 、 `description` 、 `variants` 、 `severity`、 `fuzzy_complement` のパラメーターを指定できます。
 
 ## 用語・表記ゆれ詳細API
 
@@ -304,6 +306,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/1/
     "description": "",
     "text": "Shodo",
     "variants": [{"text":  "ShoDo"}],
+    "severity": "error",
     "fuzzy_complement": false
 }
 ```

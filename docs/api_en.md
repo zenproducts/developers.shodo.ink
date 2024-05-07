@@ -236,6 +236,7 @@ API URL：`https://api.shodo.ink/@{organization}/{project}/terms/`
             "description": "",
             "text": "Shodo",
             "variants": [{"text":  "ShoDo"}],
+            "severity": "error",
             "fuzzy_complement": false
         }
     ]
@@ -256,6 +257,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/
 * `description`：Description for the term (won't be used for AI proofreading)
 * `text`：Term text
 * `variants`：List of variants（each variants will be like `{"text": "VariantText"}`）
+* `severity`: Severity of message for the term ("error", "warning" or "info")
 * `fuzzy_complement`： Whether to automatically detect fuzzy complements (if `true`, `variants` will be ignored)
 
 ### Add terms and variants
@@ -266,7 +268,7 @@ You can add terms and variants by `POST` method.
 $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/ text="Shodo"
 ```
 
-You can specify `text` , `description` , `variants` , `fuzzy_complement` params.
+You can specify `text` , `description` , `variants` , `severity`, `fuzzy_complement` params.
 
 ## Term detail API
 
@@ -288,6 +290,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/1/
     "description": "",
     "text": "Shodo",
     "variants": [{"text":  "ShoDo"}],
+    "severity": "error",
     "fuzzy_complement": false
 }
 ```
@@ -300,7 +303,7 @@ You can update terms and variants by `PUT` method.
 $ http -A bearer -a d8eb...3359 PUT https://api.shodo.ink/@org/project/terms/1/ text="SHODO"
 ```
 
-You can specify `text` , `description` , `variants` , `fuzzy_complement` params.
+You can specify `text` , `description` , `variants` , `severity`, `fuzzy_complement` params.
 
 ### Delete terms and variants
 

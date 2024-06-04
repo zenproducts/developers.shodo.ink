@@ -270,7 +270,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/
 * `text`：用語の表記
 * `variants`：表記ゆれの一覧（`{"text": "表記ゆれ文字"}` として指定）
 * `severity`: 表記ゆれの重大度（`error`、`warning`、`info` の3種類）
-* `fuzzy_complement`：表記ゆれの自動判定を行うかどうか（`true` の場合 `variants` は無効）
+* `fuzzy_complement`：表記ゆれの自動判定を行うかどうか
 
 ### クエリーパラメーター
 

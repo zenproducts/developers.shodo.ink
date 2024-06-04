@@ -258,7 +258,7 @@ $ http -A bearer -a d8eb...3359 https://api.shodo.ink/@org/project/terms/
 * `text`：Term text
 * `variants`：List of variants（each variants will be like `{"text": "VariantText"}`）
 * `severity`: Severity of message for the term ("error", "warning" or "info")
-* `fuzzy_complement`： Whether to automatically detect fuzzy complements (if `true`, `variants` will be ignored)
+* `fuzzy_complement`： Whether to automatically detect fuzzy complements
 
 ### Add terms and variants
 

@@ -48,6 +48,10 @@ Up to 40,000 characters are allowed.
 }
 ```
 
+Option:
+
+* `type`: Specify `body` type as `text` (text, Markdown), `html` (HTML). (Default is `text`)
+
 ### Response
 
 ```json
@@ -88,6 +92,23 @@ Each response of the proofreading API has the following meaning.
 For example, if all the cache is used, `len_used` will be `0`.
 The cache is valid for about 30 minutes, but the cache time is not guaranteed.
 Please be assured that the cache of the text is managed in a way that it is not leaked or affected by other users.
+
+### HTML Input
+
+In Shodo, you can use HTML in the body. When HTML is specified, the body text of block elements will be proofread.
+Please note that inline elements and attribute values are ignored. Also, the target of proofreading must be included within some HTML elements.
+
+```bash
+$ http ... body="<p>これは本文です</p>" type="html"
+```
+
+The structure of the body will be analysied as follows:
+
+<h1> to <h6>: Headings
+<li>: List (<li><p>...</p></li> is also considered as a list)
+<div>, <p>, <figcaption>, etc.: Paragraphs
+
+Additionally, the character limit for input (42,000 characters) does not consider HTML tags.
 
 ## Result API
 

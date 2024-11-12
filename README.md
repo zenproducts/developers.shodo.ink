@@ -1,9 +1,5 @@
 # Shodo for developers
 
-APIドキュメントは以下のリンクから参照してください。
+APIドキュメントは以下に移行しました。
 
-* [APIドキュメント](./docs/api.md)
-
-English API document is here!
-
-* [Shodo API Document](./docs/api_en.md)
+https://developer.shodo.ink/
